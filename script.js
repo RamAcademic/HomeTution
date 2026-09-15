@@ -17,11 +17,11 @@ if (menuToggle && navLinks) {
 
     menuToggle.addEventListener("click", () => {
 
-        const opened = navLinks.classList.toggle("open");
+        const isOpen = navLinks.classList.toggle("open");
 
         menuToggle.setAttribute(
             "aria-expanded",
-            opened ? "true" : "false"
+            isOpen ? "true" : "false"
         );
 
     });
@@ -65,32 +65,32 @@ window.addEventListener("scroll", () => {
 
 
 /* =========================================================
-   ACTIVE NAVIGATION LINK
+   ACTIVE NAVIGATION
 ========================================================= */
 
 const sections = document.querySelectorAll("section[id]");
-const links = document.querySelectorAll(".nav-links a");
+const navItems = document.querySelectorAll(".nav-links a");
 
 
 const activeObserver = new IntersectionObserver(
-    entries => {
+    (entries) => {
 
         entries.forEach(entry => {
 
             if (entry.isIntersecting) {
 
-                links.forEach(link => {
-                    link.classList.remove("active");
+                navItems.forEach(item => {
+                    item.classList.remove("active");
                 });
 
 
-                const activeLink = document.querySelector(
+                const activeItem = document.querySelector(
                     `.nav-links a[href="#${entry.target.id}"]`
                 );
 
 
-                if (activeLink) {
-                    activeLink.classList.add("active");
+                if (activeItem) {
+                    activeItem.classList.add("active");
                 }
 
             }
@@ -114,9 +114,8 @@ sections.forEach(section => {
    DARK / LIGHT MODE
 ========================================================= */
 
-const savedTheme = localStorage.getItem(
-    "mathsmentor-theme"
-);
+const savedTheme =
+    localStorage.getItem("mathsmentor-theme");
 
 
 if (savedTheme === "dark") {
@@ -133,7 +132,7 @@ if (themeToggle) {
         document.body.classList.toggle("dark");
 
 
-        const theme =
+        const currentTheme =
             document.body.classList.contains("dark")
                 ? "dark"
                 : "light";
@@ -141,7 +140,7 @@ if (themeToggle) {
 
         localStorage.setItem(
             "mathsmentor-theme",
-            theme
+            currentTheme
         );
 
     });
@@ -153,7 +152,7 @@ if (themeToggle) {
    SCROLL REVEAL ANIMATION
 ========================================================= */
 
-const revealTargets = document.querySelectorAll(
+const revealElements = document.querySelectorAll(
     ".about-copy, " +
     ".about-right, " +
     ".subject-card, " +
@@ -165,7 +164,7 @@ const revealTargets = document.querySelectorAll(
 );
 
 
-revealTargets.forEach(element => {
+revealElements.forEach(element => {
 
     element.classList.add("reveal");
 
@@ -173,7 +172,7 @@ revealTargets.forEach(element => {
 
 
 const revealObserver = new IntersectionObserver(
-    entries => {
+    (entries) => {
 
         entries.forEach(entry => {
 
@@ -196,7 +195,7 @@ const revealObserver = new IntersectionObserver(
 );
 
 
-revealTargets.forEach(element => {
+revealElements.forEach(element => {
 
     revealObserver.observe(element);
 
@@ -248,7 +247,57 @@ document.querySelectorAll(
 
 
 /* =========================================================
-   CONSOLE MESSAGE
+   CLOSE MENU WHEN CLICKING OUTSIDE
+========================================================= */
+
+document.addEventListener("click", (event) => {
+
+    if (
+        navLinks &&
+        menuToggle &&
+        navLinks.classList.contains("open") &&
+        !navLinks.contains(event.target) &&
+        !menuToggle.contains(event.target)
+    ) {
+
+        navLinks.classList.remove("open");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
+
+});
+
+
+/* =========================================================
+   ESC KEY CLOSES MOBILE MENU
+========================================================= */
+
+document.addEventListener("keydown", (event) => {
+
+    if (event.key === "Escape") {
+
+        if (navLinks) {
+            navLinks.classList.remove("open");
+        }
+
+        if (menuToggle) {
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+        }
+
+    }
+
+});
+
+
+/* =========================================================
+   CONSOLE
 ========================================================= */
 
 console.log(
