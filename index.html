@@ -16,6 +16,41 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .brand-r {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            line-height: 1;
+            font-family: Inter, sans-serif;
+            color: #f5b91f;
+        }
+        .nav-actions-compact { gap: 0 !important; }
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+        .theme-icon {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            visibility: visible !important;
+            opacity: 1 !important;
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            line-height: 1;
+        }
+        .theme-track {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .theme-thumb { display: block; }
+    </style>
+
 </head>
 
 <body>
@@ -25,7 +60,7 @@
         <div class="container nav-inner">
 
             <a href="#home" class="brand">
-                <span class="brand-mark">∞</span>
+                <span class="brand-mark brand-r" aria-label="R">R</span>
                 <span class="brand-copy">
                     <strong>Maths<span>Mentor</span></strong>
                     <small>Understand&nbsp; • &nbsp;Practice&nbsp; • &nbsp;Excel</small>
@@ -41,7 +76,7 @@
                 <a href="#contact">Contact</a>
             </nav>
 
-            <div class="nav-actions">
+            <div class="nav-actions nav-actions-compact">
                 <button
                     class="theme-toggle"
                     id="themeToggle"
@@ -50,15 +85,11 @@
                     aria-pressed="false"
                     title="Switch theme"
                 >
-                    <span class="theme-icon theme-sun" aria-hidden="true">
-                        <i class="fa-solid fa-sun"></i>
-                    </span>
+                    <span class="theme-icon theme-sun" aria-hidden="true">☀</span>
                     <span class="theme-track" aria-hidden="true">
                         <span class="theme-thumb"></span>
                     </span>
-                    <span class="theme-icon theme-moon" aria-hidden="true">
-                        <i class="fa-solid fa-moon"></i>
-                    </span>
+                    <span class="theme-icon theme-moon" aria-hidden="true">☾</span>
                 </button>
 
 
@@ -483,7 +514,7 @@
 
             <div class="footer-brand">
                 <a href="#home" class="brand">
-                    <span class="brand-mark">∞</span>
+                    <span class="brand-mark brand-r" aria-label="R">R</span>
                     <span class="brand-copy">
                         <strong>Maths<span>Mentor</span></strong>
                         <small>Understand&nbsp; • &nbsp;Practice&nbsp; • &nbsp;Excel</small>
