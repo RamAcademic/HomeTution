@@ -1,123 +1,65 @@
-```javascript
 /* =========================================================
-   MATHSMENTOR - JAVASCRIPT
-========================================================= */
-
-
-/* =========================================================
-   MOBILE NAVIGATION
+   MATHSMENTOR JAVASCRIPT
 ========================================================= */
 
 const menuToggle = document.getElementById("menuToggle");
-const navMenu = document.getElementById("navMenu");
+const navLinks = document.getElementById("navLinks");
+const navbar = document.getElementById("navbar");
+const themeToggle = document.getElementById("themeToggle");
+const year = document.getElementById("year");
 
-if (menuToggle && navMenu) {
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+if (menuToggle && navLinks) {
 
     menuToggle.addEventListener("click", () => {
 
-        navMenu.classList.toggle("active");
+        const opened = navLinks.classList.toggle("open");
 
-        if (navMenu.classList.contains("active")) {
-            menuToggle.textContent = "✕";
-        } else {
-            menuToggle.textContent = "☰";
-        }
-
-    });
-
-}
-
-
-/* =========================================================
-   CLOSE MOBILE MENU AFTER CLICKING A LINK
-========================================================= */
-
-const navLinks = document.querySelectorAll(".nav-menu a");
-
-navLinks.forEach((link) => {
-
-    link.addEventListener("click", () => {
-
-        navMenu.classList.remove("active");
-
-        menuToggle.textContent = "☰";
+        menuToggle.setAttribute(
+            "aria-expanded",
+            opened ? "true" : "false"
+        );
 
     });
 
-});
 
+    navLinks.querySelectorAll("a").forEach(link => {
 
-/* =========================================================
-   AUTOMATIC COPYRIGHT YEAR
-========================================================= */
+        link.addEventListener("click", () => {
 
-const currentYear = document.getElementById("currentYear");
+            navLinks.classList.remove("open");
 
-if (currentYear) {
-    currentYear.textContent = new Date().getFullYear();
-}
-
-
-/* =========================================================
-   HEADER SHADOW WHEN SCROLLING
-========================================================= */
-
-const navbar = document.querySelector(".navbar");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 20) {
-
-        navbar.style.boxShadow =
-            "0 5px 25px rgba(15, 23, 42, 0.08)";
-
-    } else {
-
-        navbar.style.boxShadow = "none";
-
-    }
-
-});
-
-
-/* =========================================================
-   SCROLL REVEAL ANIMATION
-========================================================= */
-
-const revealElements = document.querySelectorAll(
-    ".about-card, .class-card, .feature, .stats-card, .contact-box"
-);
-
-const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-
-        entries.forEach((entry) => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-
-                observer.unobserve(entry.target);
-
-            }
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
 
         });
 
-    },
-    {
-        threshold: 0.15
+    });
+
+}
+
+
+/* =========================================================
+   NAVBAR SCROLL EFFECT
+========================================================= */
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 15) {
+
+        navbar.classList.add("scrolled");
+
+    } else {
+
+        navbar.classList.remove("scrolled");
+
     }
-);
-
-
-revealElements.forEach((element) => {
-
-    element.style.opacity = "0";
-    element.style.transform = "translateY(25px)";
-    element.style.transition = "opacity 0.7s ease, transform 0.7s ease";
-
-    revealObserver.observe(element);
 
 });
 
@@ -127,62 +69,80 @@ revealElements.forEach((element) => {
 ========================================================= */
 
 const sections = document.querySelectorAll("section[id]");
-
-window.addEventListener("scroll", () => {
-
-    let currentSection = "";
-
-    sections.forEach((section) => {
-
-        const sectionTop = section.offsetTop - 120;
-        const sectionHeight = section.offsetHeight;
-
-        if (
-            window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight
-        ) {
-            currentSection = section.getAttribute("id");
-        }
-
-    });
+const links = document.querySelectorAll(".nav-links a");
 
 
-    navLinks.forEach((link) => {
+const activeObserver = new IntersectionObserver(
+    entries => {
 
-        link.classList.remove("active");
+        entries.forEach(entry => {
 
-        const href = link.getAttribute("href");
+            if (entry.isIntersecting) {
 
-        if (href === "#" + currentSection) {
-            link.classList.add("active");
-        }
+                links.forEach(link => {
+                    link.classList.remove("active");
+                });
 
-    });
 
+                const activeLink = document.querySelector(
+                    `.nav-links a[href="#${entry.target.id}"]`
+                );
+
+
+                if (activeLink) {
+                    activeLink.classList.add("active");
+                }
+
+            }
+
+        });
+
+    },
+    {
+        rootMargin: "-30% 0px -60% 0px",
+        threshold: 0
+    }
+);
+
+
+sections.forEach(section => {
+    activeObserver.observe(section);
 });
 
 
 /* =========================================================
-   PREVENT EMPTY WHATSAPP LINK
+   DARK / LIGHT MODE
 ========================================================= */
 
-const whatsappButton = document.querySelector(".btn-whatsapp");
+const savedTheme = localStorage.getItem(
+    "mathsmentor-theme"
+);
 
-if (whatsappButton) {
 
-    whatsappButton.addEventListener("click", (event) => {
+if (savedTheme === "dark") {
 
-        const whatsappURL = whatsappButton.getAttribute("href");
+    document.body.classList.add("dark");
 
-        if (whatsappURL === "https://wa.me/") {
+}
 
-            event.preventDefault();
 
-            alert(
-                "Please add your WhatsApp number to the website first."
-            );
+if (themeToggle) {
 
-        }
+    themeToggle.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark");
+
+
+        const theme =
+            document.body.classList.contains("dark")
+                ? "dark"
+                : "light";
+
+
+        localStorage.setItem(
+            "mathsmentor-theme",
+            theme
+        );
 
     });
 
@@ -190,23 +150,98 @@ if (whatsappButton) {
 
 
 /* =========================================================
-   BUTTON CLICK EFFECT
+   SCROLL REVEAL ANIMATION
 ========================================================= */
 
-const buttons = document.querySelectorAll(".btn");
+const revealTargets = document.querySelectorAll(
+    ".about-copy, " +
+    ".about-right, " +
+    ".subject-card, " +
+    ".stat-item, " +
+    ".why-list > div, " +
+    ".why-visual, " +
+    ".review-card, " +
+    ".contact-info-card"
+);
 
-buttons.forEach((button) => {
 
-    button.addEventListener("mousedown", () => {
-        button.style.transform = "scale(0.97)";
-    });
+revealTargets.forEach(element => {
 
-    button.addEventListener("mouseup", () => {
-        button.style.transform = "";
-    });
+    element.classList.add("reveal");
 
-    button.addEventListener("mouseleave", () => {
-        button.style.transform = "";
+});
+
+
+const revealObserver = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+                revealObserver.unobserve(
+                    entry.target
+                );
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+
+revealTargets.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+/* =========================================================
+   AUTOMATIC COPYRIGHT YEAR
+========================================================= */
+
+if (year) {
+
+    year.textContent =
+        new Date().getFullYear();
+
+}
+
+
+/* =========================================================
+   SMOOTH CONTACT BUTTON
+========================================================= */
+
+document.querySelectorAll(
+    'a[href="#contact"]'
+).forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const contact =
+            document.getElementById("contact");
+
+
+        if (contact) {
+
+            setTimeout(() => {
+
+                contact.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }, 20);
+
+        }
+
     });
 
 });
@@ -217,11 +252,9 @@ buttons.forEach((button) => {
 ========================================================= */
 
 console.log(
-    "📐 MathsMentor website loaded successfully!"
+    "MathsMentor website loaded successfully."
 );
 
 console.log(
     "Mathematics Home Tuition | Rajajinagar | Bengaluru"
 );
-```
-
