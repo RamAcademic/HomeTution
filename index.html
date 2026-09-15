@@ -1,516 +1,504 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="Mathematics Home Tuition in Rajajinagar, Bengaluru. Personalised mathematics coaching for students.">
+          content="MathsMentor - Personalised Mathematics Home Tuition in Rajajinagar, Bengaluru.">
 
-    <meta name="keywords"
-          content="Mathematics Tuition, Home Tuition, Rajajinagar, Bengaluru, Maths Tutor">
+    <title>MathsMentor | Mathematics Home Tuition</title>
 
-    <meta name="author" content="Mathematics Tutor">
-
-    <title>Mathematics Home Tuition | Rajajinagar</title>
-
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =========================
-         NAVIGATION BAR
-    ========================== -->
-    <header class="navbar">
-        <div class="container nav-container">
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-inner">
 
-            <a href="#home" class="logo">
-                <span class="logo-symbol">∑</span>
-                <span>Maths<span class="logo-highlight">Mentor</span></span>
+            <a href="#home" class="brand">
+                <span class="brand-mark">∞</span>
+                <span class="brand-copy">
+                    <strong>Maths<span>Mentor</span></strong>
+                    <small>Understand&nbsp; • &nbsp;Practice&nbsp; • &nbsp;Excel</small>
+                </span>
             </a>
 
-            <nav class="nav-menu" id="navMenu">
-                <a href="#home">Home</a>
+            <nav class="nav-links" id="navLinks">
+                <a class="active" href="#home">Home</a>
                 <a href="#about">About</a>
-                <a href="#classes">Classes</a>
-                <a href="#why-us">Why Me?</a>
+                <a href="#subjects">Subjects</a>
+                <a href="#why">Why Me</a>
+                <a href="#reviews">Reviews</a>
                 <a href="#contact">Contact</a>
             </nav>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
-                ☰
-            </button>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span>☀</span><i></i><b>☾</b>
+                </button>
+
+                <a href="#contact" class="nav-cta">
+                    Get in Touch <span>➜</span>
+                </a>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
 
         </div>
     </header>
 
 
-    <!-- =========================
-         HERO SECTION
-    ========================== -->
     <main>
 
+        <!-- ================= HERO ================= -->
         <section class="hero" id="home">
+            <div class="hero-glow"></div>
+            <div class="math-doodle doodle-left">∑ &nbsp; π &nbsp; √x</div>
+            <div class="math-doodle doodle-right">
+                Let's<br>
+                Solve<br>
+                Together<br>
+                <span>Ram</span>
+            </div>
 
-            <div class="container hero-container">
+            <div class="container hero-grid">
 
                 <div class="hero-content">
 
-                    <span class="hero-badge">
-                        📐 Personalised Mathematics Coaching
-                    </span>
+                    <div class="location-pill">
+                        Mathematics Home Tuition in Rajajinagar, Bengaluru
+                    </div>
 
                     <h1>
-                        Master Mathematics.
-                        <span>Build Confidence.</span>
+                        Mathematics<br>
+                        Made <span>Simple.</span>
                     </h1>
 
-                    <p class="hero-description">
-                        Personalised Mathematics Home Tuition for students
-                        in and around Rajajinagar, Bengaluru.
+                    <p class="hero-text">
+                        Personalised one-to-one tuition for school, PUC and
+                        engineering mathematics. Let's build your confidence together.
                     </p>
 
                     <div class="hero-buttons">
-
-                        <a href="#contact" class="btn btn-primary">
+                        <a href="#contact" class="btn btn-yellow">
+                            <span class="whatsapp-mini">◉</span>
                             Book a Demo Class
+                            <span>→</span>
                         </a>
 
-                        <a href="#classes" class="btn btn-secondary">
-                            Explore Classes
+                        <a href="#about" class="btn btn-outline">
+                            Know More
+                            <span>↓</span>
                         </a>
-
                     </div>
 
-                    <div class="availability">
+                    <div class="hero-info">
 
-                        <div class="availability-item">
-                            <span class="availability-icon">🕕</span>
+                        <div class="info-item">
+                            <span class="info-icon">◷</span>
                             <div>
                                 <strong>Available</strong>
                                 <small>6:00 PM – 9:00 PM</small>
                             </div>
                         </div>
 
-                        <div class="availability-item">
-                            <span class="availability-icon">📍</span>
+                        <div class="info-item">
+                            <span class="info-icon">●</span>
                             <div>
                                 <strong>Location</strong>
                                 <small>Rajajinagar, Bengaluru</small>
                             </div>
                         </div>
 
-                    </div>
+                        <div class="info-item">
+                            <span class="info-icon">◆</span>
+                            <div>
+                                <strong>Mode</strong>
+                                <small>Home Tuition / Offline</small>
+                            </div>
+                        </div>
 
+                    </div>
                 </div>
 
 
-                <!-- Hero Card -->
+                <div class="hero-visual">
 
-                <div class="hero-card">
+                    <div class="photo-frame">
+                        <img src="assets/profile.jpg"
+                             alt="Mathematics tutor"
+                             class="profile-photo">
 
-                    <div class="math-card">
+                        <div class="photo-shine"></div>
+                    </div>
 
-                        <div class="math-card-top">
-                            <span class="math-icon">∫</span>
-                            <span>Mathematics</span>
-                        </div>
-
-                        <div class="equation">
-                            y = mx + c
-                        </div>
-
-                        <p>
-                            Understand the concept.<br>
-                            Apply the method.<br>
-                            Solve with confidence.
-                        </p>
-
-                        <div class="math-dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-
+                    <div class="thought-card">
+                        <p>Good<br>Mathematics<br>builds better<br><strong>thinking.</strong></p>
+                        <span></span>
                     </div>
 
                 </div>
 
             </div>
-
         </section>
 
 
-        <!-- =========================
-             ABOUT SECTION
-        ========================== -->
-
+        <!-- ================= ABOUT ================= -->
         <section class="about section" id="about">
+            <div class="container about-grid">
 
-            <div class="container">
+                <div class="about-copy">
+                    <span class="section-kicker">About Me</span>
 
-                <div class="section-heading">
-
-                    <span class="section-label">ABOUT THE TUTOR</span>
-
-                    <h2>
-                        Mathematics Made
-                        <span>Simple & Clear</span>
-                    </h2>
+                    <h2>A Passion for<br>Teaching Mathematics</h2>
 
                     <p>
-                        My goal is not just to help students get marks.
-                        I help them understand mathematics, develop problem-solving
-                        skills and build confidence.
+                        I am an Assistant Professor of Mathematics with a strong
+                        interest in teaching and mentoring students. My goal is to
+                        make mathematics simple, interesting and application-oriented.
+                        I focus on concept clarity, regular practice and building confidence.
                     </p>
 
+                    <a href="#contact" class="blue-btn">
+                        <span>♟</span> Read More About Me <b>→</b>
+                    </a>
                 </div>
 
+                <div class="about-right">
 
-                <div class="about-grid">
+                    <div class="about-features">
 
-                    <div class="about-card">
+                        <div class="mini-feature">
+                            <div class="mini-icon target">◎</div>
+                            <h3>Concept Clarity</h3>
+                            <p>Understand the “why” behind every topic.</p>
+                        </div>
 
-                        <div class="card-icon">👨‍🏫</div>
+                        <div class="mini-feature">
+                            <div class="mini-icon people">♟</div>
+                            <h3>Personal Attention</h3>
+                            <p>Customized teaching as per your level.</p>
+                        </div>
 
-                        <h3>Experienced Teaching</h3>
+                        <div class="mini-feature">
+                            <div class="mini-icon chart">▥</div>
+                            <h3>Exam Focus</h3>
+                            <p>Practice and strategies for better results.</p>
+                        </div>
 
-                        <p>
-                            Concept-focused teaching with clear explanations
-                            and step-by-step problem solving.
-                        </p>
+                        <div class="mini-feature">
+                            <div class="mini-icon heart">♥</div>
+                            <h3>Friendly Learning</h3>
+                            <p>A comfortable and supportive environment.</p>
+                        </div>
 
                     </div>
 
-
-                    <div class="about-card">
-
-                        <div class="card-icon">🧠</div>
-
-                        <h3>Concept First</h3>
-
+                    <div class="quote-box">
+                        <span class="quote-mark">“</span>
                         <p>
-                            Students learn the reason behind every formula
-                            instead of simply memorising it.
+                            Mathematics is not just about numbers, it is about thinking,
+                            problem-solving and discovering new possibilities.
                         </p>
-
-                    </div>
-
-
-                    <div class="about-card">
-
-                        <div class="card-icon">🎯</div>
-
-                        <h3>Personal Attention</h3>
-
-                        <p>
-                            Teaching is adapted according to the student's
-                            current level and learning requirements.
-                        </p>
-
+                        <small>— Ram</small>
                     </div>
 
                 </div>
-
             </div>
-
         </section>
 
 
-        <!-- =========================
-             CLASSES SECTION
-        ========================== -->
-
-        <section class="classes section" id="classes">
-
+        <!-- ================= SUBJECTS ================= -->
+        <section class="subjects section" id="subjects">
             <div class="container">
 
-                <div class="section-heading">
+                <div class="section-top">
+                    <div>
+                        <span class="section-kicker">Subjects I Teach</span>
+                        <h2>From Basics to Advanced</h2>
+                    </div>
 
-                    <span class="section-label">CLASSES</span>
-
-                    <h2>
-                        Mathematics Support
-                        <span>For Every Level</span>
-                    </h2>
-
-                    <p>
-                        Choose the level that matches your academic requirements.
-                    </p>
-
+                    <a href="#contact" class="view-all">View All Topics →</a>
                 </div>
 
+                <div class="subject-grid">
 
-                <div class="classes-grid">
-
-                    <div class="class-card">
-
-                        <span class="class-number">01</span>
-
-                        <div class="card-icon">📘</div>
-
-                        <h3>School Mathematics</h3>
-
-                        <p>
-                            Strong fundamentals, textbook concepts,
-                            homework support and exam preparation.
-                        </p>
-
-                        <ul>
-                            <li>Concept clarification</li>
-                            <li>Problem solving</li>
-                            <li>Exam preparation</li>
-                        </ul>
-
-                    </div>
-
-
-                    <div class="class-card featured">
-
-                        <span class="class-number">02</span>
-
-                        <div class="card-icon">📊</div>
-
-                        <h3>PUC Mathematics</h3>
-
-                        <p>
-                            Detailed preparation for PUC Mathematics
-                            with emphasis on concepts and problem solving.
-                        </p>
-
-                        <ul>
-                            <li>Chapter-wise teaching</li>
-                            <li>Important problems</li>
-                            <li>Exam-oriented practice</li>
-                        </ul>
-
-                    </div>
-
-
-                    <div class="class-card">
-
-                        <span class="class-number">03</span>
-
-                        <div class="card-icon">🎓</div>
-
-                        <h3>Engineering Mathematics</h3>
-
-                        <p>
-                            Support for undergraduate engineering mathematics
-                            and university examination preparation.
-                        </p>
-
-                        <ul>
-                            <li>VTU Mathematics</li>
-                            <li>Numerical Methods</li>
-                            <li>Problem solving</li>
-                        </ul>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             WHY ME SECTION
-        ========================== -->
-
-        <section class="why-us section" id="why-us">
-
-            <div class="container why-container">
-
-                <div class="why-content">
-
-                    <span class="section-label">WHY CHOOSE ME?</span>
-
-                    <h2>
-                        More Than Just
-                        <span>Tuition</span>
-                    </h2>
-
-                    <p>
-                        Every student has a different learning style.
-                        My teaching approach focuses on understanding,
-                        practice and confidence.
-                    </p>
-
-                    <div class="features">
-
-                        <div class="feature">
-                            <span>✓</span>
+                    <article class="subject-card school">
+                        <div class="subject-head">
+                            <div class="subject-icon">▢</div>
                             <div>
+                                <h3>School Mathematics</h3>
+                                <ul>
+                                    <li>6th to 10th Standard</li>
+                                    <li>Concept explanation</li>
+                                    <li>Homework support</li>
+                                    <li>Exam preparation</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="subject-tag">Build Strong Fundamentals</span>
+                    </article>
+
+                    <article class="subject-card puc">
+                        <div class="subject-head">
+                            <div class="subject-icon">◆</div>
+                            <div>
+                                <h3>PUC Mathematics</h3>
+                                <ul>
+                                    <li>1st & 2nd PUC (PCMB)</li>
+                                    <li>Chapter-wise teaching</li>
+                                    <li>Important problems</li>
+                                    <li>Board exam preparation</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="subject-tag">Score with Confidence</span>
+                    </article>
+
+                    <article class="subject-card engineering">
+                        <div class="subject-head">
+                            <div class="subject-icon">▣</div>
+                            <div>
+                                <h3>Engineering Mathematics</h3>
+                                <ul>
+                                    <li>VTU / University Syllabus</li>
+                                    <li>Numerical Methods</li>
+                                    <li>Calculus, Linear Algebra</li>
+                                    <li>Exam-oriented practice</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="subject-tag">Understand and Apply</span>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= STATS ================= -->
+        <section class="stats-wrap">
+            <div class="container stats-bar">
+
+                <div class="stat-item">
+                    <span class="stat-icon">◆</span>
+                    <strong>100+</strong>
+                    <small>Students Guided</small>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-icon">★</span>
+                    <strong>100%</strong>
+                    <small>Concept Focused</small>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-icon">◷</span>
+                    <strong>6 – 9 PM</strong>
+                    <small>Availability</small>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-icon">●</span>
+                    <strong>Rajajinagar</strong>
+                    <small>Bengaluru</small>
+                </div>
+
+                <div class="stat-slogan">
+                    <span>“Same</span>
+                    <span>Students</span>
+                    <span>Bigger <b>Dreams</b>”</span>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= WHY ================= -->
+        <section class="why section" id="why">
+            <div class="container why-grid">
+
+                <div>
+                    <span class="section-kicker">Why Choose Me?</span>
+                    <h2>Learning That Goes<br><span>Beyond Marks</span></h2>
+                    <p class="why-lead">
+                        Every student has a different learning style. My approach
+                        focuses on understanding, practice and confidence.
+                    </p>
+
+                    <div class="why-list">
+                        <div>
+                            <b>✓</b>
+                            <span>
                                 <strong>Clear Explanation</strong>
-                                <p>Complex concepts explained in a simple way.</p>
-                            </div>
+                                <small>Complex concepts explained in a simple way.</small>
+                            </span>
                         </div>
 
-                        <div class="feature">
-                            <span>✓</span>
-                            <div>
+                        <div>
+                            <b>✓</b>
+                            <span>
                                 <strong>Step-by-Step Learning</strong>
-                                <p>Learn methods systematically from basics to advanced.</p>
-                            </div>
+                                <small>Learn methods systematically from basics to advanced.</small>
+                            </span>
                         </div>
 
-                        <div class="feature">
-                            <span>✓</span>
-                            <div>
+                        <div>
+                            <b>✓</b>
+                            <span>
                                 <strong>Regular Practice</strong>
-                                <p>Practice questions to improve speed and accuracy.</p>
-                            </div>
+                                <small>Practice questions to improve speed and accuracy.</small>
+                            </span>
                         </div>
 
-                        <div class="feature">
-                            <span>✓</span>
-                            <div>
+                        <div>
+                            <b>✓</b>
+                            <span>
                                 <strong>Exam Preparation</strong>
-                                <p>Focused preparation for tests and examinations.</p>
-                            </div>
+                                <small>Focused preparation for tests and examinations.</small>
+                            </span>
                         </div>
-
                     </div>
-
                 </div>
 
-
-                <div class="stats-card">
-
-                    <div class="stat">
-                        <strong>100%</strong>
-                        <span>Concept Focused</span>
+                <div class="why-visual">
+                    <div class="formula-card">
+                        <span>Think</span>
+                        <strong>∫ f(x) dx</strong>
+                        <small>Understand • Apply • Solve</small>
                     </div>
 
-                    <div class="stat">
-                        <strong>1:1</strong>
-                        <span>Personal Attention</span>
-                    </div>
-
-                    <div class="stat">
-                        <strong>6–9</strong>
-                        <span>PM Availability</span>
-                    </div>
-
-                    <div class="stat">
-                        <strong>∞</strong>
-                        <span>Learning Potential</span>
-                    </div>
-
+                    <div class="floating-equation eq-one">a² + b² = c²</div>
+                    <div class="floating-equation eq-two">lim x → 0</div>
                 </div>
 
             </div>
-
         </section>
 
 
-        <!-- =========================
-             CONTACT SECTION
-        ========================== -->
-
-        <section class="contact section" id="contact">
-
+        <!-- ================= REVIEWS ================= -->
+        <section class="reviews section" id="reviews">
             <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker">Reviews</span>
+                    <h2>What Students Say</h2>
+                    <p>Real learning starts when students feel comfortable asking questions.</p>
+                </div>
 
-                <div class="contact-box">
+                <div class="review-grid">
+                    <article class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>“The concepts became much easier after learning them step by step.”</p>
+                        <strong>Student</strong>
+                        <small>Mathematics Learner</small>
+                    </article>
 
-                    <div class="contact-content">
+                    <article class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>“Doubts are explained patiently and the focus is always on understanding.”</p>
+                        <strong>Student</strong>
+                        <small>PUC Mathematics</small>
+                    </article>
 
-                        <span class="section-label">GET STARTED</span>
+                    <article class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>“Regular practice helped me become more confident in solving problems.”</p>
+                        <strong>Student</strong>
+                        <small>Engineering Mathematics</small>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-                        <h2>
-                            Ready to Make
-                            <span>Mathematics Easier?</span>
-                        </h2>
 
-                        <p>
-                            Contact me to discuss your requirements
-                            and schedule a Mathematics tuition session.
-                        </p>
+        <!-- ================= CONTACT ================= -->
+        <section class="contact section" id="contact">
+            <div class="container contact-grid">
 
+                <div class="contact-heading">
+                    <span class="section-kicker">Let's Get Started</span>
+                    <h2>Ready to Make<br>Mathematics <span>Easier?</span></h2>
+                    <p>Contact me to discuss your requirements and schedule a tuition session.</p>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-method">
+                        <div class="contact-method-icon green">◉</div>
+                        <strong>WhatsApp</strong>
+                        <small>Click to Chat</small>
                     </div>
 
-
-                    <div class="contact-details">
-
-                        <div class="contact-item">
-                            <span>📍</span>
-                            <div>
-                                <strong>Location</strong>
-                                <p>Rajajinagar, Bengaluru</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <span>🕕</span>
-                            <div>
-                                <strong>Available Time</strong>
-                                <p>6:00 PM – 9:00 PM</p>
-                            </div>
-                        </div>
-
-                        <a href="https://wa.me/"
-                           class="btn btn-whatsapp"
-                           target="_blank"
-                           rel="noopener">
-                            💬 Contact on WhatsApp
-                        </a>
-
+                    <div class="contact-method">
+                        <div class="contact-method-icon blue">⌕</div>
+                        <strong>Phone</strong>
+                        <small>+91 XXXXX 43210</small>
+                        <em>Replace with your number</em>
                     </div>
 
+                    <div class="contact-method">
+                        <div class="contact-method-icon red">●</div>
+                        <strong>Location</strong>
+                        <small>Rajajinagar,<br>Bengaluru</small>
+                    </div>
+
+                    <div class="contact-actions">
+                        <a href="#contact" class="contact-btn primary">▣ &nbsp; Book a Demo Class <span>→</span></a>
+                        <a href="mailto:your@email.com" class="contact-btn secondary">✉ &nbsp; Email Me</a>
+                    </div>
                 </div>
 
             </div>
-
         </section>
 
     </main>
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
+    <!-- ================= FOOTER ================= -->
     <footer class="footer">
+        <div class="container footer-main">
 
-        <div class="container footer-container">
-
-            <div class="footer-logo">
-                <span>∑</span> MathsMentor
+            <div class="footer-brand">
+                <a href="#home" class="brand">
+                    <span class="brand-mark">∞</span>
+                    <span class="brand-copy">
+                        <strong>Maths<span>Mentor</span></strong>
+                        <small>Understand&nbsp; • &nbsp;Practice&nbsp; • &nbsp;Excel</small>
+                    </span>
+                </a>
             </div>
 
-            <p>
-                Mathematics Home Tuition · Rajajinagar · Bengaluru
-            </p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#subjects">Subjects</a>
+                <a href="#contact">Contact</a>
+            </div>
 
-            <p class="copyright">
-                © <span id="currentYear"></span> MathsMentor. All rights reserved.
-            </p>
+            <div class="socials">
+                <a href="#" aria-label="LinkedIn">in</a>
+                <a href="#" aria-label="GitHub">●</a>
+                <a href="#" aria-label="YouTube">▶</a>
+            </div>
 
         </div>
 
+        <div class="container footer-bottom">
+            <span>© <span id="year"></span> MathsMentor. All rights reserved.</span>
+            <span>Designed with <b>♥</b> for Mathematics Learners</span>
+        </div>
     </footer>
 
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
-
     <script src="script.js"></script>
-
 </body>
 </html>
-```
-
