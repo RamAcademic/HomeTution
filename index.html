@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
 
     <meta name="description"
           content="MathsMentor - Personalised Mathematics Home Tuition in Rajajinagar, Bengaluru.">
@@ -25,7 +26,30 @@
             font-family: Inter, sans-serif;
             color: #f5b91f;
         }
-</style>
+        .nav-actions-compact { gap: 0 !important; }
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+        .theme-icon {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            visibility: visible !important;
+            opacity: 1 !important;
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            line-height: 1;
+        }
+        .theme-track {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .theme-thumb { display: block; }
+    </style>
 
 </head>
 
@@ -53,7 +77,23 @@
             </nav>
 
             <div class="nav-actions nav-actions-compact">
-<button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+                <button
+                    class="theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                    aria-label="Switch to light mode"
+                    aria-pressed="false"
+                    title="Switch theme"
+                >
+                    <span class="theme-icon theme-sun" aria-hidden="true">☀</span>
+                    <span class="theme-track" aria-hidden="true">
+                        <span class="theme-thumb"></span>
+                    </span>
+                    <span class="theme-icon theme-moon" aria-hidden="true">☾</span>
+                </button>
+
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>
             </div>
