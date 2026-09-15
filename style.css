@@ -33,18 +33,10 @@ html {
 
 body {
     font-family: "Inter", sans-serif;
-    color: var(--ink);
-    background: var(--white);
+    color: #f5f8ff;
+    background: #071a32;
     line-height: 1.55;
     overflow-x: hidden;
-}
-
-[data-theme="dark"] {
-    --white: #071a32;
-    --ink: #f5f8ff;
-    --muted: #a8b7ca;
-    --line: #193452;
-    --soft: #0b223f;
 }
 
 a {
@@ -164,81 +156,6 @@ button {
     gap: 15px;
 }
 
-.theme-toggle {
-    width: 76px;
-    height: 32px;
-    border: 1px solid rgba(255,255,255,.28);
-    border-radius: 999px;
-    background: #f1f4f8;
-    color: #09203f;
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 5px;
-    cursor: pointer;
-    padding: 3px 6px;
-    flex: 0 0 auto;
-    transition: background .25s ease, border-color .25s ease, transform .2s ease;
-}
-
-.theme-toggle:hover {
-    transform: translateY(-1px);
-}
-
-.theme-icon {
-    width: 21px;
-    height: 21px;
-    display: grid;
-    place-items: center;
-    flex: 0 0 21px;
-    font-size: 12px;
-    line-height: 1;
-    z-index: 2;
-}
-
-.theme-sun {
-    color: #09203f;
-}
-
-.theme-moon {
-    color: #09203f;
-}
-
-.theme-track {
-    position: relative;
-    width: 25px;
-    height: 25px;
-    display: block;
-    flex: 0 0 25px;
-}
-
-.theme-thumb {
-    position: absolute;
-    top: 1px;
-    left: 0;
-    width: 23px;
-    height: 23px;
-    border-radius: 50%;
-    background: #ffffff;
-    box-shadow: 0 2px 7px rgba(3,26,59,.18);
-    transition: transform .25s ease, background .25s ease;
-}
-
-[data-theme="dark"] .theme-toggle {
-    background: #102b4d;
-    border-color: rgba(255,255,255,.22);
-}
-
-[data-theme="dark"] .theme-sun,
-[data-theme="dark"] .theme-moon {
-    color: #ffffff;
-}
-
-[data-theme="dark"] .theme-thumb {
-    background: var(--yellow);
-    transform: translateX(2px);
-}
-
 .nav-cta {
     display: inline-flex;
     align-items: center;
@@ -275,7 +192,7 @@ button {
     display: block;
     width: 24px;
     height: 2px;
-    background: white;
+    background: #071a32;
     margin: 5px auto;
 }
 
@@ -561,7 +478,7 @@ h2 {
 /* ================= ABOUT ================= */
 
 .about {
-    background: var(--white);
+    background: #071a32;
     position: relative;
 }
 
@@ -801,7 +718,7 @@ h2 {
 
 .stats-wrap {
     padding: 0 0 85px;
-    background: var(--white);
+    background: #071a32;
 }
 
 .stats-bar {
@@ -864,7 +781,7 @@ h2 {
 /* ================= WHY ================= */
 
 .why {
-    background: #fff;
+    background: #071a32;
 }
 
 .why-grid {
@@ -1003,7 +920,7 @@ h2 {
 /* ================= REVIEWS ================= */
 
 .reviews {
-    background: var(--soft);
+    background: #061d38;
 }
 
 .review-grid {
@@ -1013,7 +930,7 @@ h2 {
 }
 
 .review-card {
-    background: var(--white);
+    background: #071a32;
     border: 1px solid var(--line);
     border-radius: 15px;
     padding: 25px;
@@ -1051,7 +968,7 @@ h2 {
 /* ================= CONTACT ================= */
 
 .contact {
-    background: white;
+    background: #071a32;
 }
 
 .contact-grid {
@@ -1163,7 +1080,7 @@ h2 {
 
 .contact-btn.secondary {
     color: var(--ink);
-    background: white;
+    background: #071a32;
     border: 1px solid #246ff0;
 }
 
@@ -1321,129 +1238,6 @@ h2 {
     .nav-links a::after {
         bottom: 6px;
     }
-
-    .theme-toggle {
-        display: none;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .hero {
-        min-height: auto;
-    }
-
-    .hero-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 65px 0 55px;
-    }
-
-    .hero-content {
-        margin: 0 auto;
-    }
-
-    .hero-text {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-buttons,
-    .hero-info {
-        justify-content: center;
-    }
-
-    .hero-visual {
-        min-height: 390px;
-        margin-top: 15px;
-    }
-
-    .photo-frame {
-        width: min(380px, 88vw);
-    }
-
-    .thought-card {
-        right: 4%;
-        bottom: 10px;
-    }
-
-    .doodle-right {
-        display: none;
-    }
-
-    .about-grid,
-    .why-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .about-copy {
-        text-align: center;
-    }
-
-    .about-copy p {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .about-features {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .subject-grid,
-    .review-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .stats-bar {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-
-    .stat-item {
-        border-right: 0;
-        border-bottom: 1px solid rgba(255,255,255,.12);
-        padding-bottom: 15px;
-    }
-
-    .stat-slogan {
-        grid-column: span 2;
-        padding-top: 8px;
-    }
-
-    .why-list {
-        grid-template-columns: 1fr;
-    }
-
-    .why-visual {
-        min-height: 300px;
-    }
-
-    .contact-info-card {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .contact-actions {
-        grid-column: span 2;
-    }
-
-    .footer-main {
-        flex-direction: column;
-        justify-content: center;
-        padding: 30px 0;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        justify-content: center;
-        gap: 7px;
-        padding: 17px 0;
-        text-align: center;
-    }
-}
-
-
 /* ================= SMALL PHONES ================= */
 
 @media (max-width: 520px) {
@@ -1565,1215 +1359,103 @@ h2 {
 
 /* ================= DARK THEME ================= */
 
-[data-theme="dark"] .about,
-[data-theme="dark"] .subjects,
-[data-theme="dark"] .why,
-[data-theme="dark"] .contact {
-    background: var(--white);
-}
 
-[data-theme="dark"] .subject-card,
-[data-theme="dark"] .review-card,
-[data-theme="dark"] .contact-method {
-    background: #0c2543;
-    border-color: #1b3b5d;
-}
 
-[data-theme="dark"] .about-copy p,
-[data-theme="dark"] .mini-feature p,
-[data-theme="dark"] .subject-card li,
-[data-theme="dark"] .review-card p,
-[data-theme="dark"] .contact-heading p {
-    color: #aebed1;
-}
 
-[data-theme="dark"] .quote-box {
-    background: #0d2949;
-    border-color: #1d4265;
-}
 
-[data-theme="dark"] .quote-box p,
-[data-theme="dark"] .quote-box small {
-    color: #dbe8f6;
-}
 
-[data-theme="dark"] .reviews {
-    background: #061d38;
-}
-
-/* =========================================================
-   FINAL THEME + NAVBAR FIXES
-   Uses the data-theme attribute controlled by index.html.
-   ========================================================= */
-
-/* ---------- NAVBAR: keep Contact close to theme toggle ---------- */
-.nav-inner {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    column-gap: 22px;
-}
-
-.nav-links {
-    justify-content: flex-end;
-    gap: 29px;
-    margin-left: auto;
-}
-
-.nav-actions {
-    justify-content: flex-end;
-    gap: 0;
-    margin-left: 0;
-}
-
-.nav-actions .theme-toggle {
-    margin-left: 0;
-}
-
-@media (max-width: 1050px) {
-    .nav-inner {
-        column-gap: 15px;
-    }
-
-    .nav-links {
-        gap: 18px;
-    }
-}
-
-/* ---------- LIGHT THEME ---------- */
-html[data-theme="light"] body {
-    color: #09203f;
-    background: #ffffff;
-}
-
-html[data-theme="light"] .navbar {
-    background: rgba(3,26,59,.97);
-    color: #ffffff;
-}
-
-html[data-theme="light"] .nav-links a {
-    color: #f3f7ff;
-}
-
-html[data-theme="light"] .brand-copy strong {
-    color: #ffffff;
-}
-
-html[data-theme="light"] .brand-copy small {
-    color: #a9b9d0;
-}
-
-html[data-theme="light"] .about,
-html[data-theme="light"] .subjects,
-html[data-theme="light"] .why,
-html[data-theme="light"] .contact {
-    background: #ffffff;
-}
-
-html[data-theme="light"] .about-copy p,
-html[data-theme="light"] .mini-feature p,
-html[data-theme="light"] .subject-card li,
-html[data-theme="light"] .review-card p,
-html[data-theme="light"] .contact-heading p {
-    color: #60728a;
-}
-
-html[data-theme="light"] .quote-box {
-    background: linear-gradient(110deg, #eef6ff, #f5f9ff);
-    border-color: #dbeafe;
-}
-
-html[data-theme="light"] .quote-box p,
-html[data-theme="light"] .quote-box small {
-    color: #213c5e;
-}
-
-html[data-theme="light"] .subjects {
-    background:
-        radial-gradient(circle at 80% 20%, rgba(33,108,231,.04), transparent 25%),
-        #ffffff;
-}
-
-html[data-theme="light"] .subject-card.school {
-    background: linear-gradient(130deg, #f4f9ff, #ffffff);
-}
-
-html[data-theme="light"] .subject-card.puc {
-    background: linear-gradient(130deg, #fffdf3, #fff9df);
-}
-
-html[data-theme="light"] .subject-card.engineering {
-    background: linear-gradient(130deg, #fbf7ff, #f7f1ff);
-}
-
-html[data-theme="light"] .review-card {
-    background: #ffffff;
-}
-
-html[data-theme="light"] .reviews {
-    background: #f6f9fd;
-}
-
-html[data-theme="light"] .contact-method {
-    background: linear-gradient(145deg, #ffffff, #f9fbfe);
-}
-
-html[data-theme="light"] .contact-btn.secondary {
-    color: #09203f;
-    background: #ffffff;
-}
-
-/* ---------- DARK THEME ---------- */
-html[data-theme="dark"] body {
-    color: #f5f8ff;
-    background: #071a32;
-}
-
-html[data-theme="dark"] .navbar {
-    background: rgba(3,26,59,.97);
-    color: #ffffff;
-}
-
-html[data-theme="dark"] .nav-links a {
-    color: #f3f7ff;
-}
-
-html[data-theme="dark"] .brand-copy strong {
-    color: #ffffff;
-}
-
-html[data-theme="dark"] .brand-copy small {
-    color: #a9b9d0;
-}
-
-html[data-theme="dark"] .about,
-html[data-theme="dark"] .subjects,
-html[data-theme="dark"] .why,
-html[data-theme="dark"] .contact {
-    background: #071a32;
-}
-
-html[data-theme="dark"] .about-copy p,
-html[data-theme="dark"] .mini-feature p,
-html[data-theme="dark"] .subject-card li,
-html[data-theme="dark"] .review-card p,
-html[data-theme="dark"] .contact-heading p {
-    color: #aebed1;
-}
-
-html[data-theme="dark"] h2,
-html[data-theme="dark"] .about-copy h2,
-html[data-theme="dark"] .subject-card h3,
-html[data-theme="dark"] .mini-feature h3,
-html[data-theme="dark"] .review-card strong,
-html[data-theme="dark"] .contact-method strong {
-    color: #f5f8ff;
-}
-
-html[data-theme="dark"] .quote-box {
-    background: #0d2949;
-    border-color: #1d4265;
-}
-
-html[data-theme="dark"] .quote-box p,
-html[data-theme="dark"] .quote-box small {
-    color: #dbe8f6;
-}
-
-html[data-theme="dark"] .subjects {
-    background:
-        radial-gradient(circle at 80% 20%, rgba(33,108,231,.10), transparent 25%),
-        #071a32;
-}
-
-html[data-theme="dark"] .subject-card,
-html[data-theme="dark"] .review-card,
-html[data-theme="dark"] .contact-method {
-    background: #0c2543;
-    border-color: #1b3b5d;
-}
-
-html[data-theme="dark"] .subject-card.school,
-html[data-theme="dark"] .subject-card.puc,
-html[data-theme="dark"] .subject-card.engineering {
-    background: #0c2543;
-}
-
-html[data-theme="dark"] .subject-card li {
-    color: #b8c8da;
-}
-
-html[data-theme="dark"] .subject-tag {
-    background: #18385f;
-    color: #7fb2ff;
-}
-
-html[data-theme="dark"] .puc .subject-tag {
-    background: #493d18;
-    color: #ffd45c;
-}
-
-html[data-theme="dark"] .engineering .subject-tag {
-    background: #35265c;
-    color: #bca3ff;
-}
-
-html[data-theme="dark"] .mini-icon.target {
-    background: #3a2028;
-    color: #ff7887;
-}
-
-html[data-theme="dark"] .mini-icon.people {
-    background: #17345b;
-    color: #70a7ff;
-}
-
-html[data-theme="dark"] .mini-icon.chart {
-    background: #123b46;
-    color: #55d3e5;
-}
-
-html[data-theme="dark"] .mini-icon.heart {
-    background: #3a2028;
-    color: #ff7887;
-}
-
-html[data-theme="dark"] .why {
-    background: #071a32;
-}
-
-html[data-theme="dark"] .why-list > div > b {
-    background: #17345b;
-    color: #76adff;
-}
-
-html[data-theme="dark"] .reviews {
-    background: #061d38;
-}
-
-html[data-theme="dark"] .contact-method {
-    box-shadow: 0 7px 25px rgba(0,0,0,.18);
-}
-
-html[data-theme="dark"] .contact-btn.secondary {
-    color: #f5f8ff;
-    background: #0c2543;
-    border-color: #4d91f5;
-}
-
-/* ---------- MOBILE NAV ---------- */
-@media (max-width: 820px) {
-    .nav-inner {
-        display: flex;
-        justify-content: space-between;
-        column-gap: 12px;
-    }
-
-    .nav-links {
-        margin-left: 0;
-    }
-
-    .nav-actions {
-        margin-left: auto;
-    }
-
-    .theme-toggle {
-        display: none;
-    }
-}
-
-/* ---------- R MARK: clean personal-brand look ---------- */
-.brand-mark {
-    width: 45px;
-    height: 42px;
-    font-family: "Inter", sans-serif;
-    font-size: 42px;
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -2px;
-}
 
 
 /* =========================================================
-   MATHSMENTOR — FINAL LIGHT / DARK DESIGN
-   Reference: cream light mode + navy dark mode
-   ========================================================= */
+   FINAL DARK-ONLY DESIGN + MOBILE PHOTO-FIRST LAYOUT
+========================================================= */
 
-:root {
-    --cream: #fbf8ef;
-    --cream-2: #fffdf7;
-    --cream-card: #fffaf0;
-    --navy: #031a3b;
-    --navy-2: #062650;
-    --ink: #09203f;
-    --muted: #66758a;
-    --line: #e8e1d3;
-    --yellow: #ffc62d;
-    --yellow-2: #ffd94d;
-}
-
-/* ---------- GLOBAL LIGHT MODE ---------- */
-html[data-theme="light"] body {
-    background: var(--cream);
-    color: var(--ink);
-}
-
-html[data-theme="light"] .about,
-html[data-theme="light"] .subjects,
-html[data-theme="light"] .why,
-html[data-theme="light"] .contact {
-    background: var(--cream);
-}
-
-html[data-theme="light"] .reviews {
-    background: #f3efe5;
-}
-
-html[data-theme="light"] .subjects {
-    background:
-        radial-gradient(circle at 80% 20%, rgba(33,108,231,.045), transparent 26%),
-        var(--cream);
-}
-
-html[data-theme="light"] .stats-wrap {
-    background: var(--cream);
-}
-
-/* ---------- LIGHT MODE NAVBAR ---------- */
-html[data-theme="light"] .navbar {
-    background: rgba(251,248,239,.97);
-    color: var(--ink);
-    border-bottom: 1px solid rgba(9,32,63,.07);
-}
-
-html[data-theme="light"] .nav-links a {
-    color: var(--ink);
-}
-
-html[data-theme="light"] .brand-copy strong {
-    color: var(--ink);
-}
-
-html[data-theme="light"] .brand-copy small {
-    color: #718096;
-}
-
-html[data-theme="light"] .menu-toggle span {
-    background: var(--ink);
-}
-
-/* ---------- LIGHT MODE HERO ---------- */
-html[data-theme="light"] .hero {
-    color: var(--ink);
-    background:
-        radial-gradient(circle at 79% 38%, rgba(255,198,45,.13), transparent 23%),
-        radial-gradient(circle at 52% 76%, rgba(23,105,238,.06), transparent 28%),
-        linear-gradient(135deg, #fffdf7 0%, #fbf8ef 52%, #f7f3e8 100%);
-}
-
-html[data-theme="light"] .hero::before {
-    background-image:
-        linear-gradient(rgba(9,32,63,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(9,32,63,.035) 1px, transparent 1px);
-}
-
-html[data-theme="light"] .hero h1 {
-    color: var(--ink);
-}
-
-html[data-theme="light"] .hero-text {
-    color: #52657d;
-}
-
-html[data-theme="light"] .location-pill {
-    color: var(--ink);
-    background: rgba(255,246,210,.75);
-    border-color: rgba(255,198,45,.52);
-    box-shadow: none;
-}
-
-html[data-theme="light"] .btn-outline {
-    color: var(--ink);
-    border-color: #52657d;
-}
-
-html[data-theme="light"] .btn-outline:hover {
-    color: var(--ink);
-    background: rgba(9,32,63,.05);
-}
-
-html[data-theme="light"] .info-item small {
-    color: #6f8095;
-}
-
-html[data-theme="light"] .thought-card {
-    background: rgba(255,253,247,.96);
-    border-color: #d9d0bd;
-    box-shadow: 0 14px 35px rgba(9,32,63,.13);
-}
-
-html[data-theme="light"] .thought-card p {
-    color: var(--ink);
-}
-
-html[data-theme="light"] .math-doodle {
-    color: rgba(9,32,63,.20);
-}
-
-/* ---------- LIGHT MODE CONTENT ---------- */
-html[data-theme="light"] .section-kicker,
-html[data-theme="light"] .view-all {
-    color: var(--blue);
-}
-
-html[data-theme="light"] .about-copy p,
-html[data-theme="light"] .mini-feature p,
-html[data-theme="light"] .subject-card li,
-html[data-theme="light"] .review-card p,
-html[data-theme="light"] .contact-heading p {
-    color: #60728a;
-}
-
-html[data-theme="light"] .quote-box {
-    background: linear-gradient(110deg, #fffdf7, #f7f2e7);
-    border-color: #e4dccb;
-}
-
-html[data-theme="light"] .quote-box p,
-html[data-theme="light"] .quote-box small {
-    color: #294361;
-}
-
-html[data-theme="light"] .subject-card.school {
-    background: linear-gradient(135deg, #fffdf8, #f4f8ff);
-}
-
-html[data-theme="light"] .subject-card.puc {
-    background: linear-gradient(135deg, #fffdf2, #fff7d9);
-}
-
-html[data-theme="light"] .subject-card.engineering {
-    background: linear-gradient(135deg, #fffaff, #f7f1ff);
-}
-
-html[data-theme="light"] .review-card {
-    background: #fffdf8;
-}
-
-html[data-theme="light"] .contact-method {
-    background: linear-gradient(145deg, #fffdf8, #f8f4ea);
-}
-
-/* ---------- DARK MODE ---------- */
-html[data-theme="dark"] body {
+html, body {
     background: #071a32;
     color: #f5f8ff;
 }
 
-html[data-theme="dark"] .navbar {
+body {
+    color-scheme: dark;
+}
+
+.navbar {
     background: rgba(3,26,59,.98);
     color: #ffffff;
-    border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
-html[data-theme="dark"] .nav-links a,
-html[data-theme="dark"] .brand-copy strong {
-    color: #f5f8ff;
-}
-
-html[data-theme="dark"] .brand-copy small {
-    color: #a9b9d0;
-}
-
-html[data-theme="dark"] .about,
-html[data-theme="dark"] .subjects,
-html[data-theme="dark"] .why,
-html[data-theme="dark"] .contact,
-html[data-theme="dark"] .stats-wrap {
+.about,
+.subjects,
+.why,
+.contact,
+.stats-wrap {
     background: #071a32;
 }
 
-html[data-theme="dark"] .reviews {
+.reviews {
     background: #061d38;
 }
 
-html[data-theme="dark"] .subjects {
-    background:
-        radial-gradient(circle at 80% 20%, rgba(33,108,231,.10), transparent 26%),
-        #071a32;
-}
-
-html[data-theme="dark"] .about-copy p,
-html[data-theme="dark"] .mini-feature p,
-html[data-theme="dark"] .subject-card li,
-html[data-theme="dark"] .review-card p,
-html[data-theme="dark"] .contact-heading p {
-    color: #aebed1;
-}
-
-html[data-theme="dark"] h2,
-html[data-theme="dark"] .subject-card h3,
-html[data-theme="dark"] .mini-feature h3,
-html[data-theme="dark"] .review-card strong,
-html[data-theme="dark"] .contact-method strong {
-    color: #f5f8ff;
-}
-
-html[data-theme="dark"] .subject-card,
-html[data-theme="dark"] .review-card,
-html[data-theme="dark"] .contact-method {
-    background: #0c2543;
-    border-color: #1b3b5d;
-}
-
-html[data-theme="dark"] .subject-card.school,
-html[data-theme="dark"] .subject-card.puc,
-html[data-theme="dark"] .subject-card.engineering {
-    background: #0c2543;
-}
-
-html[data-theme="dark"] .quote-box {
-    background: #0d2949;
-    border-color: #1d4265;
-}
-
-html[data-theme="dark"] .quote-box p,
-html[data-theme="dark"] .quote-box small {
-    color: #dbe8f6;
-}
-
-html[data-theme="dark"] .contact-btn.secondary {
-    color: #f5f8ff;
-    background: #0c2543;
-    border-color: #4d91f5;
-}
-
-/* ---------- THEME TOGGLE ---------- */
-.theme-toggle {
-    width: 74px;
-    height: 32px;
-    padding: 3px 5px;
-    display: inline-flex;
+.nav-inner {
+    display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 3px;
-    border-radius: 999px;
-    border: 1px solid rgba(9,32,63,.16);
-    background: #eef1f5;
-    color: #09203f;
-    flex: 0 0 74px;
-    position: relative;
-}
-
-.theme-icon {
-    width: 22px;
-    height: 22px;
-    flex: 0 0 22px;
-    display: grid;
-    place-items: center;
-    font-size: 12px;
-    line-height: 1;
-    z-index: 3;
-}
-
-.theme-track {
-    position: absolute;
-    inset: 3px 5px;
-    pointer-events: none;
-}
-
-.theme-thumb {
-    position: absolute;
-    top: 0;
-    left: 23px;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #ffffff;
-    box-shadow: 0 2px 8px rgba(9,32,63,.18);
-    transition: transform .25s ease, background .25s ease;
-}
-
-.theme-sun,
-.theme-moon {
-    color: #09203f;
-}
-
-html[data-theme="light"] .theme-toggle {
-    background: #eef1f5;
-    border-color: #d6dce5;
-}
-
-html[data-theme="light"] .theme-thumb {
-    transform: translateX(0);
-    background: #ffffff;
-}
-
-html[data-theme="dark"] .theme-toggle {
-    background: #102b4d;
-    border-color: rgba(255,255,255,.30);
-}
-
-html[data-theme="dark"] .theme-sun,
-html[data-theme="dark"] .theme-moon {
-    color: #ffffff;
-}
-
-html[data-theme="dark"] .theme-thumb {
-    transform: translateX(-1px);
-    background: var(--yellow);
-}
-
-/* ---------- NAVBAR SPACING ---------- */
-.nav-inner {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    column-gap: 18px;
+    gap: 25px;
 }
 
 .nav-links {
-    justify-content: flex-end;
-    gap: 28px;
     margin-left: auto;
+    justify-content: flex-end;
+    gap: 29px;
 }
 
 .nav-actions {
+    display: flex;
+    align-items: center;
     margin-left: 0;
-    justify-content: flex-end;
     gap: 0;
 }
 
-.nav-actions .theme-toggle {
-    margin-left: 0;
-}
-
-/* ---------- INFINITY BRAND MARK ---------- */
-.brand-mark {
-    width: 45px;
-    height: 40px;
-    display: grid;
-    place-items: center;
-    font-size: 40px;
-    font-family: "Inter", sans-serif;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: -2px;
-    color: var(--yellow);
-}
-
-/* ---------- MOBILE ---------- */
+/* Phone: photo first, then the written content */
 @media (max-width: 820px) {
-    .nav-inner {
+    .hero-grid {
         display: flex;
-        column-gap: 12px;
-    }
-
-    .nav-links {
-        margin-left: 0;
-    }
-
-    .nav-actions {
-        margin-left: auto;
-    }
-
-    .theme-toggle {
-        display: none;
-    }
-
-    html[data-theme="light"] .nav-links {
-        background: #fbf8ef;
-        border-top-color: rgba(9,32,63,.08);
-    }
-
-    html[data-theme="light"] .nav-links a {
-        color: var(--ink);
-        border-bottom-color: rgba(9,32,63,.08);
-    }
-}
-
-@media (max-width: 520px) {
-    .brand-mark {
-        width: 38px;
-        font-size: 34px;
-    }
-}
-
-
-/* =========================================================
-   MATHSMENTOR FINAL FIX
-   - One reliable data-theme system
-   - Cream light mode
-   - Navy dark mode
-   - Visible icons
-   - Photo FIRST on phones
-   ========================================================= */
-
-/* ---------- BASE THEME VARIABLES ---------- */
-html[data-theme="light"] {
-    --white: #fbf8ef;
-    --ink: #09203f;
-    --muted: #66758a;
-    --line: #e8e1d3;
-    --soft: #f3efe5;
-}
-
-html[data-theme="dark"] {
-    --white: #071a32;
-    --ink: #f5f8ff;
-    --muted: #aebed1;
-    --line: #193452;
-    --soft: #061d38;
-}
-
-/* ---------- LIGHT MODE ---------- */
-html[data-theme="light"] body {
-    background: #fbf8ef;
-    color: #09203f;
-}
-
-html[data-theme="light"] .hero {
-    color: #09203f;
-    background:
-        radial-gradient(circle at 79% 38%, rgba(255,198,45,.14), transparent 23%),
-        radial-gradient(circle at 52% 76%, rgba(23,105,238,.06), transparent 28%),
-        linear-gradient(135deg, #fffdf7 0%, #fbf8ef 52%, #f7f3e8 100%);
-}
-
-html[data-theme="light"] .about,
-html[data-theme="light"] .subjects,
-html[data-theme="light"] .why,
-html[data-theme="light"] .contact,
-html[data-theme="light"] .stats-wrap {
-    background: #fbf8ef;
-}
-
-html[data-theme="light"] .reviews {
-    background: #f3efe5;
-}
-
-/* Keep navbar dark in light mode, matching the reference design. */
-html[data-theme="light"] .navbar {
-    background: rgba(3,26,59,.98);
-    color: #fff;
-}
-
-html[data-theme="light"] .nav-links a,
-html[data-theme="light"] .brand-copy strong {
-    color: #fff;
-}
-
-html[data-theme="light"] .brand-copy small {
-    color: #a9b9d0;
-}
-
-html[data-theme="light"] .menu-toggle span {
-    background: #fff;
-}
-
-html[data-theme="light"] .hero h1,
-html[data-theme="light"] h2,
-html[data-theme="light"] .about-copy h2,
-html[data-theme="light"] .subject-card h3,
-html[data-theme="light"] .mini-feature h3,
-html[data-theme="light"] .review-card strong,
-html[data-theme="light"] .contact-method strong,
-html[data-theme="light"] .stat-item strong {
-    color: #09203f;
-}
-
-html[data-theme="light"] .hero-text,
-html[data-theme="light"] .about-copy p,
-html[data-theme="light"] .mini-feature p,
-html[data-theme="light"] .subject-card li,
-html[data-theme="light"] .review-card p,
-html[data-theme="light"] .contact-heading p,
-html[data-theme="light"] .why-lead {
-    color: #52657d;
-}
-
-html[data-theme="light"] .info-item strong {
-    color: #09203f;
-}
-
-html[data-theme="light"] .info-item small,
-html[data-theme="light"] .review-card small,
-html[data-theme="light"] .contact-method small,
-html[data-theme="light"] .section-heading p {
-    color: #66758a;
-}
-
-html[data-theme="light"] .location-pill {
-    color: #09203f;
-    background: #fff5cf;
-    border-color: #f1cf63;
-    box-shadow: none;
-}
-
-html[data-theme="light"] .btn-outline {
-    color: #09203f;
-    border-color: #09203f;
-}
-
-html[data-theme="light"] .btn-outline:hover {
-    color: #09203f;
-    background: rgba(9,32,63,.06);
-}
-
-html[data-theme="light"] .thought-card {
-    background: rgba(255,253,247,.97);
-    border-color: #d8cfbd;
-    box-shadow: 0 14px 35px rgba(9,32,63,.14);
-}
-
-html[data-theme="light"] .thought-card p {
-    color: #09203f;
-}
-
-html[data-theme="light"] .math-doodle {
-    color: rgba(9,32,63,.22);
-}
-
-html[data-theme="light"] .quote-box {
-    background: linear-gradient(110deg, #fffdf7, #f7f2e7);
-    border-color: #e4dccb;
-}
-
-html[data-theme="light"] .quote-box p,
-html[data-theme="light"] .quote-box small {
-    color: #294361;
-}
-
-html[data-theme="light"] .subject-card.school {
-    background: linear-gradient(135deg, #fffdf8, #f4f8ff);
-}
-
-html[data-theme="light"] .subject-card.puc {
-    background: linear-gradient(135deg, #fffdf2, #fff7d9);
-}
-
-html[data-theme="light"] .subject-card.engineering {
-    background: linear-gradient(135deg, #fffaff, #f7f1ff);
-}
-
-html[data-theme="light"] .subject-card,
-html[data-theme="light"] .review-card,
-html[data-theme="light"] .contact-method {
-    border-color: #e4ddcf;
-}
-
-html[data-theme="light"] .contact-method {
-    background: linear-gradient(145deg, #fffdf8, #f8f4ea);
-}
-
-html[data-theme="light"] .why {
-    background: #fbf8ef;
-}
-
-html[data-theme="light"] .why-visual {
-    background:
-        radial-gradient(circle at 70% 30%, rgba(44,119,239,.15), transparent 28%),
-        linear-gradient(135deg, #eef4fb, #e7eef8);
-}
-
-html[data-theme="light"] .formula-card {
-    border-color: rgba(9,32,63,.12);
-    background: rgba(255,255,255,.45);
-}
-
-html[data-theme="light"] .formula-card span,
-html[data-theme="light"] .formula-card small {
-    color: #66758a;
-}
-
-html[data-theme="light"] .formula-card strong {
-    color: #1769ee;
-}
-
-html[data-theme="light"] .floating-equation {
-    color: #52657d;
-}
-
-html[data-theme="light"] .why-list > div > b {
-    color: #1769ee;
-    background: #eaf2ff;
-}
-
-/* ---------- DARK MODE ---------- */
-html[data-theme="dark"] body {
-    background: #071a32;
-    color: #f5f8ff;
-}
-
-html[data-theme="dark"] .hero,
-html[data-theme="dark"] .about,
-html[data-theme="dark"] .subjects,
-html[data-theme="dark"] .why,
-html[data-theme="dark"] .contact,
-html[data-theme="dark"] .stats-wrap {
-    background-color: #071a32;
-}
-
-html[data-theme="dark"] .reviews {
-    background: #061d38;
-}
-
-html[data-theme="dark"] .hero h1,
-html[data-theme="dark"] h2,
-html[data-theme="dark"] .about-copy h2,
-html[data-theme="dark"] .subject-card h3,
-html[data-theme="dark"] .mini-feature h3,
-html[data-theme="dark"] .review-card strong,
-html[data-theme="dark"] .contact-method strong,
-html[data-theme="dark"] .stat-item strong {
-    color: #f5f8ff;
-}
-
-html[data-theme="dark"] .hero-text,
-html[data-theme="dark"] .about-copy p,
-html[data-theme="dark"] .mini-feature p,
-html[data-theme="dark"] .subject-card li,
-html[data-theme="dark"] .review-card p,
-html[data-theme="dark"] .contact-heading p,
-html[data-theme="dark"] .why-lead {
-    color: #b7c7d9;
-}
-
-html[data-theme="dark"] .info-item small,
-html[data-theme="dark"] .review-card small,
-html[data-theme="dark"] .contact-method small,
-html[data-theme="dark"] .section-heading p {
-    color: #aebed1;
-}
-
-html[data-theme="dark"] .subject-card,
-html[data-theme="dark"] .review-card,
-html[data-theme="dark"] .contact-method {
-    background: #0c2543;
-    border-color: #1b3b5d;
-}
-
-html[data-theme="dark"] .subject-card.school,
-html[data-theme="dark"] .subject-card.puc,
-html[data-theme="dark"] .subject-card.engineering {
-    background: #0c2543;
-}
-
-html[data-theme="dark"] .quote-box {
-    background: #0d2949;
-    border-color: #1d4265;
-}
-
-html[data-theme="dark"] .quote-box p,
-html[data-theme="dark"] .quote-box small {
-    color: #dbe8f6;
-}
-
-html[data-theme="dark"] .thought-card {
-    background: rgba(3,31,68,.96);
-    border-color: rgba(57,132,238,.5);
-}
-
-html[data-theme="dark"] .thought-card p {
-    color: #fff;
-}
-
-/* ---------- ICON VISIBILITY ---------- */
-.info-icon,
-.info-icon i,
-.subject-icon,
-.subject-icon i,
-.stat-icon,
-.stat-icon i,
-.mini-icon,
-.mini-icon i,
-.contact-method-icon,
-.contact-method-icon i {
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-html[data-theme="light"] .info-icon,
-html[data-theme="light"] .info-icon i,
-html[data-theme="light"] .subject-icon,
-html[data-theme="light"] .subject-icon i,
-html[data-theme="light"] .stat-icon,
-html[data-theme="light"] .stat-icon i {
-    color: #09203f;
-}
-
-html[data-theme="dark"] .info-icon,
-html[data-theme="dark"] .info-icon i,
-html[data-theme="dark"] .subject-icon,
-html[data-theme="dark"] .subject-icon i,
-html[data-theme="dark"] .stat-icon,
-html[data-theme="dark"] .stat-icon i {
-    color: var(--yellow);
-}
-
-/* ---------- THEME TOGGLE ---------- */
-.theme-toggle {
-    width: 74px !important;
-    height: 34px !important;
-    position: relative !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    padding: 3px 6px !important;
-    gap: 0 !important;
-    flex: 0 0 74px !important;
-    overflow: hidden;
-    border-radius: 999px !important;
-}
-
-.theme-icon {
-    width: 22px !important;
-    height: 22px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    position: relative !important;
-    z-index: 4 !important;
-    font-family: Arial, sans-serif !important;
-    font-size: 16px !important;
-}
-
-.theme-track {
-    position: absolute !important;
-    inset: 3px 5px !important;
-    width: auto !important;
-    height: auto !important;
-    pointer-events: none;
-}
-
-.theme-thumb {
-    position: absolute !important;
-    top: 0 !important;
-    left: 22px !important;
-    width: 26px !important;
-    height: 26px !important;
-    border-radius: 50% !important;
-    background: #fff !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,.18) !important;
-    transition: transform .25s ease, background .25s ease !important;
-}
-
-html[data-theme="light"] .theme-toggle {
-    background: #eef1f5 !important;
-    border-color: #cdd5df !important;
-    color: #09203f !important;
-}
-
-html[data-theme="light"] .theme-sun,
-html[data-theme="light"] .theme-moon {
-    color: #09203f !important;
-}
-
-html[data-theme="light"] .theme-thumb {
-    background: #fff !important;
-    transform: translateX(0) !important;
-}
-
-html[data-theme="dark"] .theme-toggle {
-    background: #102b4d !important;
-    border-color: rgba(255,255,255,.32) !important;
-    color: #fff !important;
-}
-
-html[data-theme="dark"] .theme-sun,
-html[data-theme="dark"] .theme-moon {
-    color: #fff !important;
-}
-
-html[data-theme="dark"] .theme-thumb {
-    background: var(--yellow) !important;
-    transform: translateX(0) !important;
-}
-
-/* ---------- CONTACT / TOGGLE GAP ---------- */
-.nav-inner {
-    display: grid !important;
-    grid-template-columns: auto 1fr auto !important;
-    column-gap: 14px !important;
-}
-
-.nav-links {
-    justify-content: flex-end !important;
-    gap: 27px !important;
-    margin-left: auto !important;
-}
-
-.nav-actions {
-    margin-left: 0 !important;
-    gap: 0 !important;
-}
-
-.nav-actions .theme-toggle {
-    margin-left: 0 !important;
-}
-
-/* ---------- PHONE: PHOTO FIRST, THEN CONTENT ---------- */
-@media (max-width: 820px) {
-
-    .hero-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 10px !important;
-        padding: 35px 0 50px !important;
+        flex-direction: column;
+        gap: 30px;
+        padding: 35px 0 45px;
     }
 
     .hero-visual {
-        order: 1 !important;
-        width: 100% !important;
-        min-height: 340px !important;
-        margin: 0 0 18px !important;
+        order: -1;
+        width: 100%;
+        min-height: auto;
     }
 
     .hero-content {
-        order: 2 !important;
-        width: 100% !important;
+        order: 2;
+        width: 100%;
+        max-width: 650px;
     }
 
     .photo-frame {
-        width: min(390px, 88vw) !important;
-    }
-
-    .hero-content {
-        text-align: center !important;
-    }
-
-    .hero-buttons,
-    .hero-info {
-        justify-content: center !important;
-    }
-
-    .hero-info {
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-}
-
-/* ---------- SMALL PHONES ---------- */
-@media (max-width: 520px) {
-
-    .hero-grid {
-        padding-top: 25px !important;
-    }
-
-    .hero-visual {
-        min-height: 320px !important;
-        margin-bottom: 12px !important;
-    }
-
-    .photo-frame {
-        width: min(350px, 86vw) !important;
+        width: min(430px, 92vw);
+        margin: 0 auto;
     }
 
     .thought-card {
-        right: 1% !important;
-        bottom: 4px !important;
+        right: 2%;
+        bottom: 12px;
+    }
+
+    .nav-inner {
+        gap: 12px;
+    }
+
+    .nav-links {
+        margin-left: 0;
+    }
+
+    .nav-actions {
+        margin-left: auto;
     }
 }
