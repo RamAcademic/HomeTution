@@ -39,7 +39,7 @@ body {
     overflow-x: hidden;
 }
 
-body.dark {
+[data-theme="dark"] {
     --white: #071a32;
     --ink: #f5f8ff;
     --muted: #a8b7ca;
@@ -165,30 +165,78 @@ button {
 }
 
 .theme-toggle {
-    width: 61px;
-    height: 29px;
-    border: 1px solid rgba(255,255,255,.25);
-    border-radius: 20px;
-    background: rgba(255,255,255,.9);
-    color: var(--navy);
-    display: flex;
+    width: 76px;
+    height: 32px;
+    border: 1px solid rgba(255,255,255,.28);
+    border-radius: 999px;
+    background: #f1f4f8;
+    color: #09203f;
+    display: inline-flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 5px;
     cursor: pointer;
-    font-size: 12px;
-    padding: 3px;
+    padding: 3px 6px;
+    flex: 0 0 auto;
+    transition: background .25s ease, border-color .25s ease, transform .2s ease;
 }
 
-.theme-toggle i {
+.theme-toggle:hover {
+    transform: translateY(-1px);
+}
+
+.theme-icon {
+    width: 21px;
+    height: 21px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 21px;
+    font-size: 12px;
+    line-height: 1;
+    z-index: 2;
+}
+
+.theme-sun {
+    color: #09203f;
+}
+
+.theme-moon {
+    color: #09203f;
+}
+
+.theme-track {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    display: block;
+    flex: 0 0 25px;
+}
+
+.theme-thumb {
+    position: absolute;
+    top: 1px;
+    left: 0;
     width: 23px;
     height: 23px;
-    background: var(--navy);
     border-radius: 50%;
-    display: block;
+    background: #ffffff;
+    box-shadow: 0 2px 7px rgba(3,26,59,.18);
+    transition: transform .25s ease, background .25s ease;
 }
 
-.theme-toggle b {
-    font-weight: 600;
+[data-theme="dark"] .theme-toggle {
+    background: #102b4d;
+    border-color: rgba(255,255,255,.22);
+}
+
+[data-theme="dark"] .theme-sun,
+[data-theme="dark"] .theme-moon {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .theme-thumb {
+    background: var(--yellow);
+    transform: translateX(2px);
 }
 
 .nav-cta {
@@ -1517,38 +1565,330 @@ h2 {
 
 /* ================= DARK THEME ================= */
 
-body.dark .about,
-body.dark .subjects,
-body.dark .why,
-body.dark .contact {
+[data-theme="dark"] .about,
+[data-theme="dark"] .subjects,
+[data-theme="dark"] .why,
+[data-theme="dark"] .contact {
     background: var(--white);
 }
 
-body.dark .subject-card,
-body.dark .review-card,
-body.dark .contact-method {
+[data-theme="dark"] .subject-card,
+[data-theme="dark"] .review-card,
+[data-theme="dark"] .contact-method {
     background: #0c2543;
     border-color: #1b3b5d;
 }
 
-body.dark .about-copy p,
-body.dark .mini-feature p,
-body.dark .subject-card li,
-body.dark .review-card p,
-body.dark .contact-heading p {
+[data-theme="dark"] .about-copy p,
+[data-theme="dark"] .mini-feature p,
+[data-theme="dark"] .subject-card li,
+[data-theme="dark"] .review-card p,
+[data-theme="dark"] .contact-heading p {
     color: #aebed1;
 }
 
-body.dark .quote-box {
+[data-theme="dark"] .quote-box {
     background: #0d2949;
     border-color: #1d4265;
 }
 
-body.dark .quote-box p,
-body.dark .quote-box small {
+[data-theme="dark"] .quote-box p,
+[data-theme="dark"] .quote-box small {
     color: #dbe8f6;
 }
 
-body.dark .reviews {
+[data-theme="dark"] .reviews {
     background: #061d38;
+}
+
+/* =========================================================
+   FINAL THEME + NAVBAR FIXES
+   Uses the data-theme attribute controlled by index.html.
+   ========================================================= */
+
+/* ---------- NAVBAR: keep Contact close to theme toggle ---------- */
+.nav-inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: 22px;
+}
+
+.nav-links {
+    justify-content: flex-end;
+    gap: 29px;
+    margin-left: auto;
+}
+
+.nav-actions {
+    justify-content: flex-end;
+    gap: 0;
+    margin-left: 0;
+}
+
+.nav-actions .theme-toggle {
+    margin-left: 0;
+}
+
+@media (max-width: 1050px) {
+    .nav-inner {
+        column-gap: 15px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+}
+
+/* ---------- LIGHT THEME ---------- */
+html[data-theme="light"] body {
+    color: #09203f;
+    background: #ffffff;
+}
+
+html[data-theme="light"] .navbar {
+    background: rgba(3,26,59,.97);
+    color: #ffffff;
+}
+
+html[data-theme="light"] .nav-links a {
+    color: #f3f7ff;
+}
+
+html[data-theme="light"] .brand-copy strong {
+    color: #ffffff;
+}
+
+html[data-theme="light"] .brand-copy small {
+    color: #a9b9d0;
+}
+
+html[data-theme="light"] .about,
+html[data-theme="light"] .subjects,
+html[data-theme="light"] .why,
+html[data-theme="light"] .contact {
+    background: #ffffff;
+}
+
+html[data-theme="light"] .about-copy p,
+html[data-theme="light"] .mini-feature p,
+html[data-theme="light"] .subject-card li,
+html[data-theme="light"] .review-card p,
+html[data-theme="light"] .contact-heading p {
+    color: #60728a;
+}
+
+html[data-theme="light"] .quote-box {
+    background: linear-gradient(110deg, #eef6ff, #f5f9ff);
+    border-color: #dbeafe;
+}
+
+html[data-theme="light"] .quote-box p,
+html[data-theme="light"] .quote-box small {
+    color: #213c5e;
+}
+
+html[data-theme="light"] .subjects {
+    background:
+        radial-gradient(circle at 80% 20%, rgba(33,108,231,.04), transparent 25%),
+        #ffffff;
+}
+
+html[data-theme="light"] .subject-card.school {
+    background: linear-gradient(130deg, #f4f9ff, #ffffff);
+}
+
+html[data-theme="light"] .subject-card.puc {
+    background: linear-gradient(130deg, #fffdf3, #fff9df);
+}
+
+html[data-theme="light"] .subject-card.engineering {
+    background: linear-gradient(130deg, #fbf7ff, #f7f1ff);
+}
+
+html[data-theme="light"] .review-card {
+    background: #ffffff;
+}
+
+html[data-theme="light"] .reviews {
+    background: #f6f9fd;
+}
+
+html[data-theme="light"] .contact-method {
+    background: linear-gradient(145deg, #ffffff, #f9fbfe);
+}
+
+html[data-theme="light"] .contact-btn.secondary {
+    color: #09203f;
+    background: #ffffff;
+}
+
+/* ---------- DARK THEME ---------- */
+html[data-theme="dark"] body {
+    color: #f5f8ff;
+    background: #071a32;
+}
+
+html[data-theme="dark"] .navbar {
+    background: rgba(3,26,59,.97);
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .nav-links a {
+    color: #f3f7ff;
+}
+
+html[data-theme="dark"] .brand-copy strong {
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .brand-copy small {
+    color: #a9b9d0;
+}
+
+html[data-theme="dark"] .about,
+html[data-theme="dark"] .subjects,
+html[data-theme="dark"] .why,
+html[data-theme="dark"] .contact {
+    background: #071a32;
+}
+
+html[data-theme="dark"] .about-copy p,
+html[data-theme="dark"] .mini-feature p,
+html[data-theme="dark"] .subject-card li,
+html[data-theme="dark"] .review-card p,
+html[data-theme="dark"] .contact-heading p {
+    color: #aebed1;
+}
+
+html[data-theme="dark"] h2,
+html[data-theme="dark"] .about-copy h2,
+html[data-theme="dark"] .subject-card h3,
+html[data-theme="dark"] .mini-feature h3,
+html[data-theme="dark"] .review-card strong,
+html[data-theme="dark"] .contact-method strong {
+    color: #f5f8ff;
+}
+
+html[data-theme="dark"] .quote-box {
+    background: #0d2949;
+    border-color: #1d4265;
+}
+
+html[data-theme="dark"] .quote-box p,
+html[data-theme="dark"] .quote-box small {
+    color: #dbe8f6;
+}
+
+html[data-theme="dark"] .subjects {
+    background:
+        radial-gradient(circle at 80% 20%, rgba(33,108,231,.10), transparent 25%),
+        #071a32;
+}
+
+html[data-theme="dark"] .subject-card,
+html[data-theme="dark"] .review-card,
+html[data-theme="dark"] .contact-method {
+    background: #0c2543;
+    border-color: #1b3b5d;
+}
+
+html[data-theme="dark"] .subject-card.school,
+html[data-theme="dark"] .subject-card.puc,
+html[data-theme="dark"] .subject-card.engineering {
+    background: #0c2543;
+}
+
+html[data-theme="dark"] .subject-card li {
+    color: #b8c8da;
+}
+
+html[data-theme="dark"] .subject-tag {
+    background: #18385f;
+    color: #7fb2ff;
+}
+
+html[data-theme="dark"] .puc .subject-tag {
+    background: #493d18;
+    color: #ffd45c;
+}
+
+html[data-theme="dark"] .engineering .subject-tag {
+    background: #35265c;
+    color: #bca3ff;
+}
+
+html[data-theme="dark"] .mini-icon.target {
+    background: #3a2028;
+    color: #ff7887;
+}
+
+html[data-theme="dark"] .mini-icon.people {
+    background: #17345b;
+    color: #70a7ff;
+}
+
+html[data-theme="dark"] .mini-icon.chart {
+    background: #123b46;
+    color: #55d3e5;
+}
+
+html[data-theme="dark"] .mini-icon.heart {
+    background: #3a2028;
+    color: #ff7887;
+}
+
+html[data-theme="dark"] .why {
+    background: #071a32;
+}
+
+html[data-theme="dark"] .why-list > div > b {
+    background: #17345b;
+    color: #76adff;
+}
+
+html[data-theme="dark"] .reviews {
+    background: #061d38;
+}
+
+html[data-theme="dark"] .contact-method {
+    box-shadow: 0 7px 25px rgba(0,0,0,.18);
+}
+
+html[data-theme="dark"] .contact-btn.secondary {
+    color: #f5f8ff;
+    background: #0c2543;
+    border-color: #4d91f5;
+}
+
+/* ---------- MOBILE NAV ---------- */
+@media (max-width: 820px) {
+    .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 12px;
+    }
+
+    .nav-links {
+        margin-left: 0;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+    }
+
+    .theme-toggle {
+        display: none;
+    }
+}
+
+/* ---------- R MARK: clean personal-brand look ---------- */
+.brand-mark {
+    width: 45px;
+    height: 42px;
+    font-family: "Inter", sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -2px;
 }
