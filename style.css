@@ -2777,3 +2777,70 @@ html[data-theme="dark"] .theme-thumb {
         bottom: 4px !important;
     }
 }
+
+/* =========================================================
+   STATS BAR — LIGHT MODE UPDATE
+   Keeps the original dark mode unchanged.
+   Only the Stats section changes in light mode.
+========================================================= */
+
+/* LIGHT MODE — STATS OUTER SECTION */
+html[data-theme="light"] .stats-wrap {
+    background: #fbf8ef;
+}
+
+/* LIGHT MODE — STATS BAR */
+html[data-theme="light"] .stats-bar {
+    background:
+        radial-gradient(
+            circle at 78% 28%,
+            rgba(255, 198, 45, .16),
+            transparent 25%
+        ),
+        linear-gradient(
+            110deg,
+            #fffdf7 0%,
+            #fbf8ef 55%,
+            #f4eee1 100%
+        );
+
+    color: #09203f;
+    border: 1px solid #e5dccb;
+    box-shadow: 0 18px 40px rgba(9, 32, 63, .12);
+}
+
+/* LIGHT MODE — STAT DIVIDERS */
+html[data-theme="light"] .stat-item {
+    border-right-color: rgba(9, 32, 63, .12);
+}
+
+/* LIGHT MODE — STAT ICONS */
+html[data-theme="light"] .stat-icon {
+    color: #d99b00;
+}
+
+/* LIGHT MODE — STAT NUMBERS */
+html[data-theme="light"] .stat-item strong {
+    color: #09203f;
+}
+
+/* LIGHT MODE — STAT LABELS */
+html[data-theme="light"] .stat-item small {
+    color: #5b6d83;
+}
+
+/* LIGHT MODE — SLOGAN */
+html[data-theme="light"] .stat-slogan {
+    color: #294361;
+}
+
+html[data-theme="light"] .stat-slogan b {
+    color: #d99b00;
+}
+
+/* LIGHT MODE — STATS MOBILE DIVIDERS */
+@media (max-width: 820px) {
+    html[data-theme="light"] .stat-item {
+        border-bottom-color: rgba(9, 32, 63, .12);
+    }
+}
