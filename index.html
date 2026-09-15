@@ -165,7 +165,7 @@
                         </div>
 
                         <div class="info-item">
-                            <span class="info-icon"><i class="fa-solid fa-house-chalkboard" aria-hidden="true"></i></span>
+                            <span class="info-icon"><i class="fa-solid fa-house" aria-hidden="true"></i></span>
                             <div>
                                 <strong>Mode</strong>
                                 <small>Home Tuition / Offline</small>
@@ -542,47 +542,6 @@
             <span>Designed with <b>♥</b> for Mathematics Learners</span>
         </div>
     </footer>
-
-
-    <script>
-        (function () {
-            const root = document.documentElement;
-            const toggle = document.getElementById("themeToggle");
-            const savedTheme = localStorage.getItem("mathsMentorTheme");
-
-            function applyTheme(theme) {
-                const isLight = theme === "light";
-                root.setAttribute("data-theme", isLight ? "light" : "dark");
-
-                if (toggle) {
-                    toggle.setAttribute("aria-pressed", String(isLight));
-                    toggle.setAttribute(
-                        "aria-label",
-                        isLight ? "Switch to dark mode" : "Switch to light mode"
-                    );
-                    toggle.setAttribute(
-                        "title",
-                        isLight ? "Switch to dark mode" : "Switch to light mode"
-                    );
-                }
-            }
-
-            applyTheme(savedTheme === "light" ? "light" : "dark");
-
-            if (toggle) {
-                toggle.addEventListener("click", function () {
-                    const nextTheme =
-                        root.getAttribute("data-theme") === "light"
-                            ? "dark"
-                            : "light";
-
-                    localStorage.setItem("mathsMentorTheme", nextTheme);
-                    applyTheme(nextTheme);
-                });
-            }
-        })();
-    </script>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
