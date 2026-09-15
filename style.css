@@ -2777,3 +2777,234 @@ html[data-theme="dark"] .theme-thumb {
         bottom: 4px !important;
     }
 }
+
+/* =========================================================
+   FINAL DARK-ONLY FIX
+   No light mode / no theme switching
+========================================================= */
+
+/* Fixed dark theme variables */
+:root {
+    --white: #071a32;
+    --ink: #f5f8ff;
+    --muted: #aebed1;
+    --line: #193452;
+    --soft: #061d38;
+}
+
+/* Force the complete page to stay dark */
+html,
+body {
+    background: #071a32 !important;
+    color: #f5f8ff !important;
+}
+
+/* Main sections */
+.about,
+.subjects,
+.why,
+.contact,
+.stats-wrap {
+    background: #071a32 !important;
+}
+
+.reviews {
+    background: #061d38 !important;
+}
+
+/* Remove all light-theme effects */
+html[data-theme="light"] body,
+html[data-theme="light"] .about,
+html[data-theme="light"] .subjects,
+html[data-theme="light"] .why,
+html[data-theme="light"] .contact,
+html[data-theme="light"] .stats-wrap,
+html[data-theme="light"] .reviews {
+    background: #071a32 !important;
+    color: #f5f8ff !important;
+}
+
+/* ---------- STATS BAR ---------- */
+
+.stats-wrap {
+    padding: 0 0 85px;
+    background: #071a32 !important;
+}
+
+.stats-bar {
+    min-height: 130px;
+    border-radius: 10px;
+    background:
+        radial-gradient(
+            circle at 75% 30%,
+            rgba(21,99,212,.25),
+            transparent 25%
+        ),
+        linear-gradient(
+            110deg,
+            #03204a,
+            #031a3b
+        ) !important;
+    color: #ffffff !important;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) 1.2fr;
+    align-items: center;
+    padding: 20px 24px;
+    box-shadow: 0 18px 40px rgba(0,0,0,.28);
+}
+
+.stat-item {
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,.14);
+    color: #ffffff !important;
+}
+
+.stat-icon {
+    display: block;
+    color: #ffc62d !important;
+    font-size: 22px;
+    margin-bottom: 3px;
+}
+
+.stat-item strong {
+    display: block;
+    color: #ffffff !important;
+    font-size: 20px;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+.stat-item small {
+    display: block;
+    color: #d1dbea !important;
+    font-size: 10px;
+    margin-top: 3px;
+}
+
+.stat-slogan {
+    text-align: center;
+    font-family: "Kalam", cursive;
+    font-size: 18px;
+    line-height: 1.05;
+    transform: rotate(-4deg);
+    color: #dce8f8 !important;
+}
+
+.stat-slogan span {
+    display: block;
+}
+
+.stat-slogan b {
+    color: #ffc62d !important;
+}
+
+/* ---------- ALL NORMAL CONTENT TEXT ---------- */
+
+.about h2,
+.subjects h2,
+.why h2,
+.reviews h2,
+.contact h2,
+.subject-card h3,
+.mini-feature h3,
+.review-card strong,
+.contact-method strong {
+    color: #f5f8ff !important;
+}
+
+.about-copy p,
+.mini-feature p,
+.subject-card li,
+.review-card p,
+.contact-heading p,
+.section-heading p,
+.why-lead,
+.why-list small,
+.contact-method small {
+    color: #aebed1 !important;
+}
+
+/* Cards stay dark */
+.subject-card,
+.review-card,
+.contact-method {
+    background: #0c2543 !important;
+    border-color: #1b3b5d !important;
+}
+
+.subject-card.school,
+.subject-card.puc,
+.subject-card.engineering {
+    background: #0c2543 !important;
+}
+
+/* Quote */
+.quote-box {
+    background: #0d2949 !important;
+    border-color: #1d4265 !important;
+}
+
+.quote-box p,
+.quote-box small {
+    color: #dbe8f6 !important;
+}
+
+/* Contact secondary button */
+.contact-btn.secondary {
+    color: #f5f8ff !important;
+    background: #0c2543 !important;
+    border-color: #4d91f5 !important;
+}
+
+/* ---------- MOBILE: PHOTO FIRST ---------- */
+
+@media (max-width: 820px) {
+
+    .hero-grid {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .hero-visual {
+        order: -1 !important;
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+    .hero-content {
+        order: 2 !important;
+    }
+
+    /* No theme button */
+    .theme-toggle {
+        display: none !important;
+    }
+
+    .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-item {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,.12);
+        padding-bottom: 15px;
+    }
+
+    .stat-slogan {
+        grid-column: span 2;
+        padding-top: 8px;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .stats-bar {
+        grid-template-columns: 1fr 1fr;
+        padding: 20px 15px;
+    }
+
+    .stat-item strong {
+        font-size: 17px;
+    }
+}
