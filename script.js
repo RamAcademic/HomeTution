@@ -1,5 +1,7 @@
 /* =========================================================
    MATHSMENTOR JAVASCRIPT
+   Desktop + Mobile
+   Dark / Light Mode
 ========================================================= */
 
 const menuToggle = document.getElementById("menuToggle");
@@ -51,6 +53,8 @@ if (menuToggle && navLinks) {
 
 window.addEventListener("scroll", () => {
 
+    if (!navbar) return;
+
     if (window.scrollY > 15) {
 
         navbar.classList.add("scrolled");
@@ -72,76 +76,143 @@ const sections = document.querySelectorAll("section[id]");
 const navItems = document.querySelectorAll(".nav-links a");
 
 
-const activeObserver = new IntersectionObserver(
-    (entries) => {
+if ("IntersectionObserver" in window) {
 
-        entries.forEach(entry => {
+    const activeObserver = new IntersectionObserver(
+        (entries) => {
 
-            if (entry.isIntersecting) {
+            entries.forEach(entry => {
 
-                navItems.forEach(item => {
-                    item.classList.remove("active");
-                });
+                if (entry.isIntersecting) {
 
-
-                const activeItem = document.querySelector(
-                    `.nav-links a[href="#${entry.target.id}"]`
-                );
+                    navItems.forEach(item => {
+                        item.classList.remove("active");
+                    });
 
 
-                if (activeItem) {
-                    activeItem.classList.add("active");
+                    const activeItem = document.querySelector(
+                        `.nav-links a[href="#${entry.target.id}"]`
+                    );
+
+
+                    if (activeItem) {
+                        activeItem.classList.add("active");
+                    }
+
                 }
 
-            }
+            });
 
-        });
-
-    },
-    {
-        rootMargin: "-30% 0px -60% 0px",
-        threshold: 0
-    }
-);
+        },
+        {
+            rootMargin: "-30% 0px -60% 0px",
+            threshold: 0
+        }
+    );
 
 
-sections.forEach(section => {
-    activeObserver.observe(section);
-});
+    sections.forEach(section => {
+        activeObserver.observe(section);
+    });
+
+}
 
 
 /* =========================================================
    DARK / LIGHT MODE
+   SINGLE THEME SYSTEM
 ========================================================= */
 
-const savedTheme =
-    localStorage.getItem("mathsmentor-theme");
+const THEME_KEY = "mathsMentorTheme";
+
+function applyTheme(theme) {
+
+    const isLight = theme === "light";
+
+    // Main theme attribute used by CSS
+    document.documentElement.setAttribute(
+        "data-theme",
+        isLight ? "light" : "dark"
+    );
 
 
-if (savedTheme === "dark") {
+    // Keep body class clean for compatibility
+    document.body.classList.toggle("light", isLight);
+    document.body.classList.toggle("dark", !isLight);
 
-    document.body.classList.add("dark");
+
+    // Update toggle accessibility
+    if (themeToggle) {
+
+        themeToggle.setAttribute(
+            "aria-pressed",
+            String(isLight)
+        );
+
+        themeToggle.setAttribute(
+            "aria-label",
+            isLight
+                ? "Switch to dark mode"
+                : "Switch to light mode"
+        );
+
+        themeToggle.setAttribute(
+            "title",
+            isLight
+                ? "Switch to dark mode"
+                : "Switch to light mode"
+        );
+
+    }
 
 }
 
+
+/*
+   Read saved theme.
+
+   Default = DARK MODE
+*/
+
+const savedTheme = localStorage.getItem(THEME_KEY);
+
+const initialTheme =
+    savedTheme === "light"
+        ? "light"
+        : "dark";
+
+
+applyTheme(initialTheme);
+
+
+/* =========================================================
+   THEME TOGGLE BUTTON
+========================================================= */
 
 if (themeToggle) {
 
     themeToggle.addEventListener("click", () => {
 
-        document.body.classList.toggle("dark");
-
-
         const currentTheme =
-            document.body.classList.contains("dark")
-                ? "dark"
-                : "light";
+            document.documentElement.getAttribute("data-theme") ||
+            "dark";
 
 
+        const nextTheme =
+            currentTheme === "dark"
+                ? "light"
+                : "dark";
+
+
+        // Save selected theme
         localStorage.setItem(
-            "mathsmentor-theme",
-            currentTheme
+            THEME_KEY,
+            nextTheme
         );
+
+
+        // Apply selected theme
+        applyTheme(nextTheme);
 
     });
 
@@ -171,35 +242,49 @@ revealElements.forEach(element => {
 });
 
 
-const revealObserver = new IntersectionObserver(
-    (entries) => {
+if ("IntersectionObserver" in window) {
 
-        entries.forEach(entry => {
+    const revealObserver = new IntersectionObserver(
+        (entries) => {
 
-            if (entry.isIntersecting) {
+            entries.forEach(entry => {
 
-                entry.target.classList.add("visible");
+                if (entry.isIntersecting) {
 
-                revealObserver.unobserve(
-                    entry.target
-                );
+                    entry.target.classList.add("visible");
 
-            }
+                    revealObserver.unobserve(
+                        entry.target
+                    );
 
-        });
+                }
 
-    },
-    {
-        threshold: 0.12
-    }
-);
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
 
 
-revealElements.forEach(element => {
+    revealElements.forEach(element => {
 
-    revealObserver.observe(element);
+        revealObserver.observe(element);
 
-});
+    });
+
+} else {
+
+    // Fallback for older browsers
+
+    revealElements.forEach(element => {
+
+        element.classList.add("visible");
+
+    });
+
+}
 
 
 /* =========================================================
@@ -247,7 +332,7 @@ document.querySelectorAll(
 
 
 /* =========================================================
-   CLOSE MENU WHEN CLICKING OUTSIDE
+   CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
 ========================================================= */
 
 document.addEventListener("click", (event) => {
@@ -281,14 +366,19 @@ document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
 
         if (navLinks) {
+
             navLinks.classList.remove("open");
+
         }
 
+
         if (menuToggle) {
+
             menuToggle.setAttribute(
                 "aria-expanded",
                 "false"
             );
+
         }
 
     }
