@@ -1,12 +1,13 @@
 /* =========================================================
    MATHSMENTOR JAVASCRIPT
-   DARK THEME ONLY
-   DESKTOP + MOBILE
+   Desktop + Mobile
+   Dark / Light Mode
 ========================================================= */
 
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 const navbar = document.getElementById("navbar");
+const themeToggle = document.getElementById("themeToggle");
 const year = document.getElementById("year");
 
 
@@ -118,6 +119,107 @@ if ("IntersectionObserver" in window) {
 
 
 /* =========================================================
+   DARK / LIGHT MODE
+   SINGLE THEME SYSTEM
+========================================================= */
+
+const THEME_KEY = "mathsMentorTheme";
+
+function applyTheme(theme) {
+
+    const isLight = theme === "light";
+
+    // Main theme attribute used by CSS
+    document.documentElement.setAttribute(
+        "data-theme",
+        isLight ? "light" : "dark"
+    );
+
+
+    // Keep body class clean for compatibility
+    document.body.classList.toggle("light", isLight);
+    document.body.classList.toggle("dark", !isLight);
+
+
+    // Update toggle accessibility
+    if (themeToggle) {
+
+        themeToggle.setAttribute(
+            "aria-pressed",
+            String(isLight)
+        );
+
+        themeToggle.setAttribute(
+            "aria-label",
+            isLight
+                ? "Switch to dark mode"
+                : "Switch to light mode"
+        );
+
+        themeToggle.setAttribute(
+            "title",
+            isLight
+                ? "Switch to dark mode"
+                : "Switch to light mode"
+        );
+
+    }
+
+}
+
+
+/*
+   Read saved theme.
+
+   Default = DARK MODE
+*/
+
+const savedTheme = localStorage.getItem(THEME_KEY);
+
+const initialTheme =
+    savedTheme === "light"
+        ? "light"
+        : "dark";
+
+
+applyTheme(initialTheme);
+
+
+/* =========================================================
+   THEME TOGGLE BUTTON
+========================================================= */
+
+if (themeToggle) {
+
+    themeToggle.addEventListener("click", () => {
+
+        const currentTheme =
+            document.documentElement.getAttribute("data-theme") ||
+            "dark";
+
+
+        const nextTheme =
+            currentTheme === "dark"
+                ? "light"
+                : "dark";
+
+
+        // Save selected theme
+        localStorage.setItem(
+            THEME_KEY,
+            nextTheme
+        );
+
+
+        // Apply selected theme
+        applyTheme(nextTheme);
+
+    });
+
+}
+
+
+/* =========================================================
    SCROLL REVEAL ANIMATION
 ========================================================= */
 
@@ -173,6 +275,8 @@ if ("IntersectionObserver" in window) {
     });
 
 } else {
+
+    // Fallback for older browsers
 
     revealElements.forEach(element => {
 
@@ -262,7 +366,9 @@ document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
 
         if (navLinks) {
+
             navLinks.classList.remove("open");
+
         }
 
 
@@ -281,7 +387,7 @@ document.addEventListener("keydown", (event) => {
 
 
 /* =========================================================
-   WEBSITE LOADED
+   CONSOLE
 ========================================================= */
 
 console.log(
