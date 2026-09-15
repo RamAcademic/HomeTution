@@ -1,1554 +1,504 @@
-/* =========================================================
-   MATHSMENTOR
-   DESKTOP + MOBILE RESPONSIVE STYLES
-========================================================= */
-
-:root {
-    --navy: #031a3b;
-    --navy-2: #062650;
-    --blue: #1769ee;
-    --blue-2: #2f7cf5;
-    --yellow: #ffc62d;
-    --yellow-2: #ffd94d;
-    --white: #ffffff;
-    --ink: #09203f;
-    --muted: #64748b;
-    --line: #e5edf7;
-    --soft: #f6f9fd;
-    --green: #16c784;
-    --red: #ef6262;
-    --shadow: 0 16px 45px rgba(7, 35, 73, .10);
-    --container: 1210px;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: "Inter", sans-serif;
-    color: var(--ink);
-    background: var(--white);
-    line-height: 1.55;
-    overflow-x: hidden;
-}
-
-body.dark {
-    --white: #071a32;
-    --ink: #f5f8ff;
-    --muted: #a8b7ca;
-    --line: #193452;
-    --soft: #0b223f;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button {
-    font: inherit;
-}
-
-.container {
-    width: min(92%, var(--container));
-    margin: 0 auto;
-}
-
-.section {
-    padding: 90px 0;
-}
-
-
-/* ================= NAVBAR ================= */
-
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(3, 26, 59, .96);
-    backdrop-filter: blur(15px);
-    color: white;
-    transition: .25s ease;
-}
-
-.navbar.scrolled {
-    box-shadow: 0 10px 30px rgba(0,0,0,.16);
-}
-
-.nav-inner {
-    min-height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 25px;
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    flex-shrink: 0;
-}
-
-.brand-mark {
-    width: 45px;
-    height: 38px;
-    display: grid;
-    place-items: center;
-    font-size: 40px;
-    line-height: 1;
-    color: var(--yellow);
-    font-weight: 700;
-}
-
-.brand-copy strong {
-    display: block;
-    font-size: 20px;
-    line-height: 1.05;
-    font-weight: 800;
-    letter-spacing: -.7px;
-}
-
-.brand-copy strong span {
-    color: var(--yellow);
-}
-
-.brand-copy small {
-    display: block;
-    margin-top: 3px;
-    font-size: 8px;
-    letter-spacing: .7px;
-    color: #a9b9d0;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 29px;
-}
-
-.nav-links a {
-    position: relative;
-    font-size: 13px;
-    font-weight: 500;
-    color: #f3f7ff;
-    padding: 27px 0 23px;
-}
-
-.nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 16px;
-    width: 0;
-    height: 2px;
-    background: var(--yellow);
-    transition: .25s ease;
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-    width: 100%;
-}
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.theme-toggle {
-    width: 61px;
-    height: 29px;
-    border: 1px solid rgba(255,255,255,.25);
-    border-radius: 20px;
-    background: rgba(255,255,255,.9);
-    color: var(--navy);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    cursor: pointer;
-    font-size: 12px;
-    padding: 3px;
-}
-
-.theme-toggle i {
-    width: 23px;
-    height: 23px;
-    background: var(--navy);
-    border-radius: 50%;
-    display: block;
-}
-
-.theme-toggle b {
-    font-weight: 600;
-}
-
-.nav-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 11px;
-    background: #2474ed;
-    color: white;
-    padding: 12px 19px;
-    border-radius: 24px;
-    font-size: 12px;
-    font-weight: 700;
-    box-shadow: 0 7px 22px rgba(36,116,237,.28);
-    transition: .25s ease;
-}
-
-.nav-cta:hover {
-    transform: translateY(-2px);
-}
-
-.nav-cta span {
-    font-size: 16px;
-}
-
-.menu-toggle {
-    display: none;
-    border: 0;
-    background: transparent;
-    color: white;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-}
-
-.menu-toggle span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: white;
-    margin: 5px auto;
-}
-
-
-/* ================= HERO ================= */
-
-.hero {
-    position: relative;
-    min-height: 520px;
-    color: white;
-    overflow: hidden;
-    background:
-        radial-gradient(circle at 78% 65%, rgba(28, 101, 223, .30), transparent 24%),
-        radial-gradient(circle at 30% 15%, rgba(0, 119, 255, .14), transparent 30%),
-        linear-gradient(110deg, #031633 0%, #041e42 60%, #071f3f 100%);
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    opacity: .15;
-    background-image:
-        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
-    background-size: 80px 80px;
-    mask-image: linear-gradient(to right, transparent, black 30%, black 75%, transparent);
-}
-
-.hero-grid {
-    position: relative;
-    z-index: 2;
-    min-height: 520px;
-    display: grid;
-    grid-template-columns: 1.05fr .95fr;
-    align-items: center;
-    gap: 45px;
-    padding: 48px 0 55px;
-}
-
-.hero-content {
-    max-width: 650px;
-}
-
-.location-pill {
-    display: inline-flex;
-    padding: 9px 16px;
-    border-radius: 20px;
-    border: 1px solid rgba(78, 145, 235, .45);
-    background: rgba(19, 79, 151, .33);
-    box-shadow: inset 0 0 20px rgba(45,126,240,.12), 0 0 25px rgba(31,119,239,.12);
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 16px;
-}
-
-.hero h1 {
-    font-size: clamp(48px, 6vw, 68px);
-    line-height: .98;
-    letter-spacing: -2.7px;
-    margin-bottom: 17px;
-}
-
-.hero h1 span {
-    color: var(--yellow);
-}
-
-.hero-text {
-    max-width: 570px;
-    color: #d5e0ee;
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 24px;
-}
-
-.hero-buttons {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    margin-bottom: 28px;
-}
-
-.btn {
-    min-height: 43px;
-    padding: 0 18px;
-    border-radius: 25px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    font-size: 12px;
-    font-weight: 800;
-    transition: .25s ease;
-}
-
-.btn-yellow {
-    color: #071a34;
-    background: linear-gradient(100deg, var(--yellow), #fff1ae);
-    box-shadow: 0 9px 25px rgba(255,198,45,.20);
-}
-
-.btn-yellow:hover {
-    transform: translateY(-3px);
-}
-
-.whatsapp-mini {
-    color: #0ab66c;
-    font-size: 18px;
-}
-
-.btn-outline {
-    color: white;
-    border: 1px solid rgba(255,255,255,.8);
-}
-
-.btn-outline:hover {
-    background: rgba(255,255,255,.1);
-}
-
-.hero-info {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 29px;
-}
-
-.info-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.info-icon {
-    width: 35px;
-    height: 35px;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    border: 1px solid rgba(255,198,45,.65);
-    color: var(--yellow);
-    font-size: 17px;
-}
-
-.info-item strong,
-.info-item small {
-    display: block;
-}
-
-.info-item strong {
-    font-size: 12px;
-}
-
-.info-item small {
-    color: #9fb1c9;
-    font-size: 10px;
-    margin-top: 2px;
-}
-
-.hero-visual {
-    position: relative;
-    min-height: 430px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.photo-frame {
-    position: relative;
-    width: min(430px, 90%);
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    border-radius: 28% 28% 28% 28%;
-    border: 2px solid var(--yellow);
-    box-shadow:
-        0 0 0 1px rgba(255,255,255,.16),
-        0 25px 70px rgba(0,0,0,.25),
-        0 0 45px rgba(255,198,45,.08);
-    transform: rotate(0deg);
-}
-
-.profile-photo {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    object-position: center;
-}
-
-.photo-shine {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(115deg, transparent 45%, rgba(255,255,255,.13) 50%, transparent 55%);
-    pointer-events: none;
-}
-
-.thought-card {
-    position: absolute;
-    right: -4px;
-    bottom: 18px;
-    width: 135px;
-    padding: 18px 17px 15px;
-    border-radius: 11px;
-    background: rgba(3, 31, 68, .95);
-    border: 1px solid rgba(57,132,238,.5);
-    box-shadow: 0 14px 35px rgba(0,0,0,.27);
-}
-
-.thought-card p {
-    color: white;
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-.thought-card p strong {
-    font-weight: 700;
-}
-
-.thought-card > span {
-    display: block;
-    width: 35px;
-    height: 3px;
-    background: var(--yellow);
-    margin-top: 9px;
-}
-
-.math-doodle {
-    position: absolute;
-    z-index: 1;
-    color: rgba(160,191,224,.32);
-    font-family: "Kalam", cursive;
-    pointer-events: none;
-}
-
-.doodle-left {
-    left: -25px;
-    top: 50px;
-    font-size: 40px;
-    transform: rotate(-8deg);
-}
-
-.doodle-right {
-    right: 20px;
-    top: 165px;
-    font-size: 21px;
-    line-height: 1.15;
-    transform: rotate(-5deg);
-}
-
-.doodle-right span {
-    color: var(--yellow);
-}
-
-
-/* ================= COMMON SECTION ================= */
-
-.section-kicker {
-    display: block;
-    color: var(--blue);
-    font-size: 14px;
-    font-weight: 800;
-    margin-bottom: 8px;
-}
-
-h2 {
-    font-size: clamp(30px, 4vw, 43px);
-    line-height: 1.05;
-    letter-spacing: -1.3px;
-}
-
-.section-heading {
-    max-width: 600px;
-    margin: 0 auto 40px;
-    text-align: center;
-}
-
-.section-heading p {
-    color: var(--muted);
-    margin-top: 12px;
-    font-size: 14px;
-}
-
-
-/* ================= ABOUT ================= */
-
-.about {
-    background: var(--white);
-    position: relative;
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: .75fr 1.25fr;
-    gap: 65px;
-    align-items: center;
-}
-
-.about-copy p {
-    max-width: 410px;
-    color: #60728a;
-    font-size: 14px;
-    line-height: 1.65;
-    margin: 17px 0 19px;
-}
-
-.blue-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    color: white;
-    background: linear-gradient(110deg, #1768ec, #2478ef);
-    padding: 11px 15px;
-    border-radius: 7px;
-    font-size: 11px;
-    font-weight: 700;
-    box-shadow: 0 8px 20px rgba(23,104,236,.20);
-}
-
-.blue-btn b {
-    margin-left: 4px;
-}
-
-.about-features {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-bottom: 23px;
-}
-
-.mini-feature {
-    text-align: center;
-}
-
-.mini-icon {
-    width: 53px;
-    height: 53px;
-    margin: 0 auto 9px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-size: 24px;
-}
-
-.mini-icon.target { background: #fff0f2; color: #f45162; }
-.mini-icon.people { background: #eaf2ff; color: #2372e9; }
-.mini-icon.chart { background: #e8faff; color: #14b3ca; }
-.mini-icon.heart { background: #fff0f2; color: #e95565; }
-
-.mini-feature h3 {
-    font-size: 12px;
-    margin-bottom: 4px;
-}
-
-.mini-feature p {
-    color: #60728a;
-    font-size: 10px;
-    line-height: 1.45;
-}
-
-.quote-box {
-    position: relative;
-    padding: 21px 40px 18px;
-    border-radius: 10px;
-    background: linear-gradient(110deg, #eef6ff, #f5f9ff);
-    border: 1px solid #dbeafe;
-    text-align: center;
-}
-
-.quote-mark {
-    position: absolute;
-    left: 20px;
-    top: 9px;
-    color: #c8dffb;
-    font-size: 44px;
-    line-height: 1;
-}
-
-.quote-box p {
-    font-family: Georgia, serif;
-    font-style: italic;
-    font-size: 17px;
-    line-height: 1.45;
-    color: #213c5e;
-}
-
-.quote-box small {
-    display: block;
-    text-align: right;
-    margin-top: 7px;
-    color: #213c5e;
-    font-size: 11px;
-}
-
-
-/* ================= SUBJECTS ================= */
-
-.subjects {
-    background:
-        radial-gradient(circle at 80% 20%, rgba(33,108,231,.04), transparent 25%),
-        #fff;
-}
-
-.section-top {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    margin-bottom: 30px;
-}
-
-.view-all {
-    color: var(--blue);
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.subject-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
-
-.subject-card {
-    min-height: 185px;
-    padding: 25px 24px 17px;
-    border-radius: 10px;
-    border: 1px solid var(--line);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: .25s ease;
-}
-
-.subject-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow);
-}
-
-.subject-card.school {
-    background: linear-gradient(130deg, #f4f9ff, #fff);
-    border-color: #d7e7fb;
-}
-
-.subject-card.puc {
-    background: linear-gradient(130deg, #fffdf3, #fff9df);
-    border-color: #f5e7b6;
-}
-
-.subject-card.engineering {
-    background: linear-gradient(130deg, #fbf7ff, #f7f1ff);
-    border-color: #e5d7fb;
-}
-
-.subject-head {
-    display: flex;
-    gap: 15px;
-}
-
-.subject-icon {
-    flex: 0 0 50px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-size: 24px;
-    color: var(--blue);
-    background: #e9f2ff;
-}
-
-.puc .subject-icon {
-    color: #f2a900;
-    background: #fff1c5;
-}
-
-.engineering .subject-icon {
-    color: #5f38d2;
-    background: #e9defe;
-}
-
-.subject-card h3 {
-    font-size: 14px;
-    margin: 4px 0 6px;
-}
-
-.subject-card ul {
-    list-style: none;
-    display: grid;
-    gap: 3px;
-}
-
-.subject-card li {
-    font-size: 10px;
-    color: #455d78;
-}
-
-.subject-card li::before {
-    content: "✦";
-    color: currentColor;
-    margin-right: 6px;
-}
-
-.subject-tag {
-    align-self: center;
-    padding: 5px 14px;
-    border-radius: 20px;
-    background: #e7f0ff;
-    color: var(--blue);
-    font-size: 9px;
-    font-weight: 700;
-}
-
-.puc .subject-tag {
-    background: #fff0c9;
-    color: #eea400;
-}
-
-.engineering .subject-tag {
-    background: #eae0ff;
-    color: #633bd5;
-}
-
-
-/* ================= STATS ================= */
-
-.stats-wrap {
-    padding: 0 0 85px;
-    background: var(--white);
-}
-
-.stats-bar {
-    min-height: 130px;
-    border-radius: 10px;
-    background:
-        radial-gradient(circle at 75% 30%, rgba(21,99,212,.25), transparent 25%),
-        linear-gradient(110deg, #03204a, #031a3b);
-    color: white;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr) 1.2fr;
-    align-items: center;
-    padding: 20px 24px;
-    box-shadow: 0 18px 40px rgba(3,26,59,.18);
-}
-
-.stat-item {
-    text-align: center;
-    border-right: 1px solid rgba(255,255,255,.14);
-}
-
-.stat-icon {
-    display: block;
-    color: var(--yellow);
-    font-size: 22px;
-    margin-bottom: 3px;
-}
-
-.stat-item strong {
-    display: block;
-    font-size: 20px;
-    line-height: 1.1;
-}
-
-.stat-item small {
-    display: block;
-    color: #d1dbea;
-    font-size: 10px;
-    margin-top: 3px;
-}
-
-.stat-slogan {
-    text-align: center;
-    font-family: "Kalam", cursive;
-    font-size: 18px;
-    line-height: 1.05;
-    transform: rotate(-4deg);
-    color: #dce8f8;
-}
-
-.stat-slogan span {
-    display: block;
-}
-
-.stat-slogan b {
-    color: var(--yellow);
-}
-
-
-/* ================= WHY ================= */
-
-.why {
-    background: #fff;
-}
-
-.why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 80px;
-}
-
-.why h2 span {
-    color: var(--blue);
-}
-
-.why-lead {
-    max-width: 560px;
-    color: var(--muted);
-    font-size: 14px;
-    margin: 15px 0 25px;
-}
-
-.why-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 21px 26px;
-}
-
-.why-list > div {
-    display: flex;
-    gap: 9px;
-}
-
-.why-list > div > b {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    flex-shrink: 0;
-    color: var(--blue);
-    background: #eaf2ff;
-    font-size: 12px;
-}
-
-.why-list strong,
-.why-list small {
-    display: block;
-}
-
-.why-list strong {
-    font-size: 12px;
-}
-
-.why-list small {
-    color: var(--muted);
-    font-size: 9px;
-    margin-top: 2px;
-}
-
-.why-visual {
-    position: relative;
-    min-height: 330px;
-    border-radius: 30px;
-    background:
-        radial-gradient(circle at 70% 30%, rgba(44,119,239,.22), transparent 28%),
-        linear-gradient(135deg, #071e40, #032657);
-    overflow: hidden;
-    display: grid;
-    place-items: center;
-    box-shadow: var(--shadow);
-}
-
-.why-visual::before,
-.why-visual::after {
-    content: "";
-    position: absolute;
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 50%;
-}
-
-.why-visual::before {
-    width: 360px;
-    height: 360px;
-}
-
-.why-visual::after {
-    width: 270px;
-    height: 270px;
-}
-
-.formula-card {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 35px 55px;
-    border: 1px solid rgba(255,255,255,.15);
-    background: rgba(255,255,255,.04);
-    border-radius: 20px;
-}
-
-.formula-card span,
-.formula-card small {
-    display: block;
-    color: #9fb4d0;
-    font-size: 12px;
-}
-
-.formula-card strong {
-    display: block;
-    color: var(--yellow);
-    font-family: Georgia, serif;
-    font-size: 40px;
-    margin: 13px 0;
-}
-
-.floating-equation {
-    position: absolute;
-    z-index: 3;
-    color: #b9d3f4;
-    font-family: "Kalam", cursive;
-    font-size: 18px;
-}
-
-.eq-one {
-    top: 50px;
-    left: 50px;
-    transform: rotate(-8deg);
-}
-
-.eq-two {
-    bottom: 50px;
-    right: 45px;
-    transform: rotate(6deg);
-}
-
-
-/* ================= REVIEWS ================= */
-
-.reviews {
-    background: var(--soft);
-}
-
-.review-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.review-card {
-    background: var(--white);
-    border: 1px solid var(--line);
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 8px 25px rgba(10,45,85,.05);
-}
-
-.stars {
-    color: #ffbf20;
-    letter-spacing: 2px;
-    margin-bottom: 13px;
-}
-
-.review-card p {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.6;
-    margin-bottom: 18px;
-}
-
-.review-card strong,
-.review-card small {
-    display: block;
-}
-
-.review-card strong {
-    font-size: 12px;
-}
-
-.review-card small {
-    color: var(--muted);
-    font-size: 9px;
-}
-
-
-/* ================= CONTACT ================= */
-
-.contact {
-    background: white;
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: .75fr 1.25fr;
-    align-items: center;
-    gap: 45px;
-}
-
-.contact-heading p {
-    max-width: 400px;
-    color: var(--muted);
-    font-size: 14px;
-    margin-top: 14px;
-}
-
-.contact-heading h2 span {
-    color: var(--blue);
-}
-
-.contact-info-card {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr) 1.35fr;
-    gap: 12px;
-    align-items: stretch;
-}
-
-.contact-method {
-    min-height: 120px;
-    padding: 15px;
-    border-radius: 11px;
-    border: 1px solid var(--line);
-    background: linear-gradient(145deg, #fff, #f9fbfe);
-    text-align: center;
-    box-shadow: 0 7px 25px rgba(8,45,84,.04);
-}
-
-.contact-method-icon {
-    width: 39px;
-    height: 39px;
-    display: grid;
-    place-items: center;
-    margin: 0 auto 8px;
-    border-radius: 50%;
-    font-size: 18px;
-}
-
-.contact-method-icon.green {
-    color: #12ae67;
-    background: #e6f9ef;
-}
-
-.contact-method-icon.blue {
-    color: #2874e8;
-    background: #eaf2ff;
-}
-
-.contact-method-icon.red {
-    color: #e75b5b;
-    background: #fff0f0;
-}
-
-.contact-method strong,
-.contact-method small,
-.contact-method em {
-    display: block;
-}
-
-.contact-method strong {
-    font-size: 11px;
-}
-
-.contact-method small {
-    color: var(--muted);
-    font-size: 9px;
-    margin-top: 2px;
-}
-
-.contact-method em {
-    color: #9aa9ba;
-    font-size: 7px;
-    margin-top: 3px;
-    font-style: normal;
-}
-
-.contact-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-}
-
-.contact-btn {
-    min-height: 47px;
-    border-radius: 7px;
-    padding: 0 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 11px;
-    font-weight: 800;
-}
-
-.contact-btn.primary {
-    background: #176bf0;
-    color: white;
-    box-shadow: 0 8px 20px rgba(23,107,240,.18);
-}
-
-.contact-btn.secondary {
-    color: var(--ink);
-    background: white;
-    border: 1px solid #246ff0;
-}
-
-
-/* ================= FOOTER ================= */
-
-.footer {
-    color: white;
-    background: #031a3b;
-}
-
-.footer-main {
-    min-height: 92px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-}
-
-.footer-links {
-    display: flex;
-    gap: 40px;
-    font-size: 11px;
-}
-
-.footer-links a:hover {
-    color: var(--yellow);
-}
-
-.socials {
-    display: flex;
-    gap: 9px;
-}
-
-.socials a {
-    width: 27px;
-    height: 27px;
-    border: 1px solid rgba(255,255,255,.4);
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-size: 10px;
-}
-
-.footer-bottom {
-    min-height: 48px;
-    border-top: 1px solid rgba(255,255,255,.09);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #9fb1c9;
-    font-size: 9px;
-}
-
-.footer-bottom b {
-    color: #ff5757;
-}
-
-
-/* ================= ANIMATIONS ================= */
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(18px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hero-content {
-    animation: fadeUp .7s ease both;
-}
-
-.hero-visual {
-    animation: fadeUp .85s ease .1s both;
-}
-
-.reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity .65s ease, transform .65s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* ================= TABLET ================= */
-
-@media (max-width: 1050px) {
-    .nav-links {
-        gap: 18px;
-    }
-
-    .nav-cta {
-        display: none;
-    }
-
-    .hero-grid {
-        gap: 20px;
-    }
-
-    .about-grid,
-    .contact-grid {
-        gap: 40px;
-    }
-
-    .contact-info-card {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .contact-actions {
-        grid-column: span 2;
-    }
-}
-
-
-/* ================= MOBILE ================= */
-
-@media (max-width: 820px) {
-
-    .nav-inner {
-        min-height: 66px;
-    }
-
-    .nav-links {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 66px;
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        padding: 10px 6%;
-        background: #031a3b;
-        border-top: 1px solid rgba(255,255,255,.08);
-        box-shadow: 0 15px 30px rgba(0,0,0,.2);
-    }
-
-    .nav-links.open {
-        display: flex;
-    }
-
-    .nav-links a {
-        padding: 14px 5px;
-        border-bottom: 1px solid rgba(255,255,255,.07);
-    }
-
-    .nav-links a::after {
-        bottom: 6px;
-    }
-
-    .theme-toggle {
-        display: none;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .hero {
-        min-height: auto;
-    }
-
-    .hero-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 65px 0 55px;
-    }
-
-    .hero-content {
-        margin: 0 auto;
-    }
-
-    .hero-text {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-buttons,
-    .hero-info {
-        justify-content: center;
-    }
-
-    .hero-visual {
-        min-height: 390px;
-        margin-top: 15px;
-    }
-
-    .photo-frame {
-        width: min(380px, 88vw);
-    }
-
-    .thought-card {
-        right: 4%;
-        bottom: 10px;
-    }
-
-    .doodle-right {
-        display: none;
-    }
-
-    .about-grid,
-    .why-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .about-copy {
-        text-align: center;
-    }
-
-    .about-copy p {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .about-features {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .subject-grid,
-    .review-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .stats-bar {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-
-    .stat-item {
-        border-right: 0;
-        border-bottom: 1px solid rgba(255,255,255,.12);
-        padding-bottom: 15px;
-    }
-
-    .stat-slogan {
-        grid-column: span 2;
-        padding-top: 8px;
-    }
-
-    .why-list {
-        grid-template-columns: 1fr;
-    }
-
-    .why-visual {
-        min-height: 300px;
-    }
-
-    .contact-info-card {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .contact-actions {
-        grid-column: span 2;
-    }
-
-    .footer-main {
-        flex-direction: column;
-        justify-content: center;
-        padding: 30px 0;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        justify-content: center;
-        gap: 7px;
-        padding: 17px 0;
-        text-align: center;
-    }
-}
-
-
-/* ================= SMALL PHONES ================= */
-
-@media (max-width: 520px) {
-
-    .container {
-        width: min(90%, var(--container));
-    }
-
-    .section {
-        padding: 70px 0;
-    }
-
-    .brand-copy strong {
-        font-size: 18px;
-    }
-
-    .brand-mark {
-        width: 38px;
-        font-size: 34px;
-    }
-
-    .hero h1 {
-        font-size: 46px;
-    }
-
-    .location-pill {
-        font-size: 10px;
-        padding: 8px 11px;
-    }
-
-    .hero-text {
-        font-size: 13px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .btn {
-        width: 100%;
-    }
-
-    .hero-info {
-        display: grid;
-        grid-template-columns: 1fr;
-        justify-items: start;
-        width: max-content;
-        max-width: 100%;
-        margin: 0 auto;
-        gap: 13px;
-    }
-
-    .hero-visual {
-        min-height: 330px;
-    }
-
-    .thought-card {
-        width: 118px;
-        padding: 14px;
-        right: 0;
-    }
-
-    .thought-card p {
-        font-size: 11px;
-    }
-
-    .about-features {
-        gap: 20px 10px;
-    }
-
-    .section-top {
-        align-items: flex-start;
-        gap: 15px;
-    }
-
-    .view-all {
-        margin-top: 8px;
-        white-space: nowrap;
-    }
-
-    .stats-bar {
-        grid-template-columns: 1fr 1fr;
-        padding: 20px 15px;
-    }
-
-    .stat-item strong {
-        font-size: 17px;
-    }
-
-    .contact-info-card {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-actions {
-        grid-column: auto;
-    }
-
-    .formula-card {
-        padding: 25px 30px;
-    }
-
-    .formula-card strong {
-        font-size: 32px;
-    }
-
-    .eq-one {
-        left: 20px;
-    }
-
-    .eq-two {
-        right: 20px;
-    }
-
-    .footer-links {
-        gap: 22px;
-    }
-}
-
-
-/* ================= DARK THEME ================= */
-
-body.dark .about,
-body.dark .subjects,
-body.dark .why,
-body.dark .contact {
-    background: var(--white);
-}
-
-body.dark .subject-card,
-body.dark .review-card,
-body.dark .contact-method {
-    background: #0c2543;
-    border-color: #1b3b5d;
-}
-
-body.dark .about-copy p,
-body.dark .mini-feature p,
-body.dark .subject-card li,
-body.dark .review-card p,
-body.dark .contact-heading p {
-    color: #aebed1;
-}
-
-body.dark .quote-box {
-    background: #0d2949;
-    border-color: #1d4265;
-}
-
-body.dark .quote-box p,
-body.dark .quote-box small {
-    color: #dbe8f6;
-}
-
-body.dark .reviews {
-    background: #061d38;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="MathsMentor - Personalised Mathematics Home Tuition in Rajajinagar, Bengaluru.">
+
+    <title>MathsMentor | Mathematics Home Tuition</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-inner">
+
+            <a href="#home" class="brand">
+                <span class="brand-mark">∞</span>
+                <span class="brand-copy">
+                    <strong>Maths<span>Mentor</span></strong>
+                    <small>Understand&nbsp; • &nbsp;Practice&nbsp; • &nbsp;Excel</small>
+                </span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a class="active" href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#subjects">Subjects</a>
+                <a href="#why">Why Me</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span>☀</span><i></i><b>☾</b>
+                </button>
+
+                <a href="#contact" class="nav-cta">
+                    Get in Touch <span>➜</span>
+                </a>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- ================= HERO ================= -->
+        <section class="hero" id="home">
+            <div class="hero-glow"></div>
+            <div class="math-doodle doodle-left">∑ &nbsp; π &nbsp; √x</div>
+            <div class="math-doodle doodle-right">
+                Let's<br>
+                Solve<br>
+                Together<br>
+                <span>Ram</span>
+            </div>
+
+            <div class="container hero-grid">
+
+                <div class="hero-content">
+
+                    <div class="location-pill">
+                        Mathematics Home Tuition in Rajajinagar, Bengaluru
+                    </div>
+
+                    <h1>
+                        Mathematics<br>
+                        Made <span>Simple.</span>
+                    </h1>
+
+                    <p class="hero-text">
+                        Personalised one-to-one tuition for school, PUC and
+                        engineering mathematics. Let's build your confidence together.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-yellow">
+                            <span class="whatsapp-mini">◉</span>
+                            Book a Demo Class
+                            <span>→</span>
+                        </a>
+
+                        <a href="#about" class="btn btn-outline">
+                            Know More
+                            <span>↓</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-info">
+
+                        <div class="info-item">
+                            <span class="info-icon">◷</span>
+                            <div>
+                                <strong>Available</strong>
+                                <small>6:00 PM – 9:00 PM</small>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-icon">●</span>
+                            <div>
+                                <strong>Location</strong>
+                                <small>Rajajinagar, Bengaluru</small>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-icon">◆</span>
+                            <div>
+                                <strong>Mode</strong>
+                                <small>Home Tuition / Offline</small>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="hero-visual">
+
+                    <div class="photo-frame">
+                        <img src="assets/profile.jpg"
+                             alt="Mathematics tutor"
+                             class="profile-photo">
+
+                        <div class="photo-shine"></div>
+                    </div>
+
+                    <div class="thought-card">
+                        <p>Good<br>Mathematics<br>builds better<br><strong>thinking.</strong></p>
+                        <span></span>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+        <section class="about section" id="about">
+            <div class="container about-grid">
+
+                <div class="about-copy">
+                    <span class="section-kicker">About Me</span>
+
+                    <h2>A Passion for<br>Teaching Mathematics</h2>
+
+                    <p>
+                        I am an Assistant Professor of Mathematics with a strong
+                        interest in teaching and mentoring students. My goal is to
+                        make mathematics simple, interesting and application-oriented.
+                        I focus on concept clarity, regular practice and building confidence.
+                    </p>
+
+                    <a href="#contact" class="blue-btn">
+                        <span>♟</span> Read More About Me <b>→</b>
+                    </a>
+                </div>
+
+                <div class="about-right">
+
+                    <div class="about-features">
+
+                        <div class="mini-feature">
+                            <div class="mini-icon target">◎</div>
+                            <h3>Concept Clarity</h3>
+                            <p>Understand the “why” behind every topic.</p>
+                        </div>
+
+                        <div class="mini-feature">
+                            <div class="mini-icon people">♟</div>
+                            <h3>Personal Attention</h3>
+                            <p>Customized teaching as per your level.</p>
+                        </div>
+
+                        <div class="mini-feature">
+                            <div class="mini-icon chart">▥</div>
+                            <h3>Exam Focus</h3>
+                            <p>Practice and strategies for better results.</p>
+                        </div>
+
+                        <div class="mini-feature">
+                            <div class="mini-icon heart">♥</div>
+                            <h3>Friendly Learning</h3>
+                            <p>A comfortable and supportive environment.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="quote-box">
+                        <span class="quote-mark">“</span>
+                        <p>
+                            Mathematics is not just about numbers, it is about thinking,
+                            problem-solving and discovering new possibilities.
+                        </p>
+                        <small>— Ram</small>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SUBJECTS ================= -->
+        <section class="subjects section" id="subjects">
+            <div class="container">
+
+                <div class="section-top">
+                    <div>
+                        <span class="section-kicker">Subjects I Teach</span>
+                        <h2>From Basics to Advanced</h2>
+                    </div>
+
+                    <a href="#contact" class="view-all">View All Topics →</a>
+                </div>
+
+                <div class="subject-grid">
+
+                    <article class="subject-card school">
+                        <div class="subject-head">
+                            <div class="subject-icon">▢</div>
+                            <div>
+                                <h3>School Mathematics</h3>
+                                <ul>
+                                    <li>6th to 10th Standard</li>
+                                    <li>Concept explanation</li>
+                                    <li>Homework support</li>
+                                    <li>Exam preparation</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="subject-tag">Build Strong Fundamentals</span>
+                    </article>
+
+                    <article class="subject-card puc">
+                        <div class="subject-head">
+                            <div class="subject-icon">◆</div>
+                            <div>
+                                <h3>PUC Mathematics</h3>
+                                <ul>
+                                    <li>1st & 2nd PUC (PCMB)</li>
+                                    <li>Chapter-wise teaching</li>
+                                    <li>Important problems</li>
+                                    <li>Board exam preparation</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="subject-tag">Score with Confidence</span>
+                    </article>
+
+                    <article class="subject-card engineering">
+                        <div class="subject-head">
+                            <div class="subject-icon">▣</div>
+                            <div>
+                                <h3>Engineering Mathematics</h3>
+                                <ul>
+                                    <li>VTU / University Syllabus</li>
+                                    <li>Numerical Methods</li>
+                                    <li>Calculus, Linear Algebra</li>
+                                    <li>Exam-oriented practice</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="subject-tag">Understand and Apply</span>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= STATS ================= -->
+        <section class="stats-wrap">
+            <div class="container stats-bar">
+
+                <div class="stat-item">
+                    <span class="stat-icon">◆</span>
+                    <strong>100+</strong>
+                    <small>Students Guided</small>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-icon">★</span>
+                    <strong>100%</strong>
+                    <small>Concept Focused</small>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-icon">◷</span>
+                    <strong>6 – 9 PM</strong>
+                    <small>Availability</small>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-icon">●</span>
+                    <strong>Rajajinagar</strong>
+                    <small>Bengaluru</small>
+                </div>
+
+                <div class="stat-slogan">
+                    <span>“Same</span>
+                    <span>Students</span>
+                    <span>Bigger <b>Dreams</b>”</span>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= WHY ================= -->
+        <section class="why section" id="why">
+            <div class="container why-grid">
+
+                <div>
+                    <span class="section-kicker">Why Choose Me?</span>
+                    <h2>Learning That Goes<br><span>Beyond Marks</span></h2>
+                    <p class="why-lead">
+                        Every student has a different learning style. My approach
+                        focuses on understanding, practice and confidence.
+                    </p>
+
+                    <div class="why-list">
+                        <div>
+                            <b>✓</b>
+                            <span>
+                                <strong>Clear Explanation</strong>
+                                <small>Complex concepts explained in a simple way.</small>
+                            </span>
+                        </div>
+
+                        <div>
+                            <b>✓</b>
+                            <span>
+                                <strong>Step-by-Step Learning</strong>
+                                <small>Learn methods systematically from basics to advanced.</small>
+                            </span>
+                        </div>
+
+                        <div>
+                            <b>✓</b>
+                            <span>
+                                <strong>Regular Practice</strong>
+                                <small>Practice questions to improve speed and accuracy.</small>
+                            </span>
+                        </div>
+
+                        <div>
+                            <b>✓</b>
+                            <span>
+                                <strong>Exam Preparation</strong>
+                                <small>Focused preparation for tests and examinations.</small>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="why-visual">
+                    <div class="formula-card">
+                        <span>Think</span>
+                        <strong>∫ f(x) dx</strong>
+                        <small>Understand • Apply • Solve</small>
+                    </div>
+
+                    <div class="floating-equation eq-one">a² + b² = c²</div>
+                    <div class="floating-equation eq-two">lim x → 0</div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= REVIEWS ================= -->
+        <section class="reviews section" id="reviews">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker">Reviews</span>
+                    <h2>What Students Say</h2>
+                    <p>Real learning starts when students feel comfortable asking questions.</p>
+                </div>
+
+                <div class="review-grid">
+                    <article class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>“The concepts became much easier after learning them step by step.”</p>
+                        <strong>Student</strong>
+                        <small>Mathematics Learner</small>
+                    </article>
+
+                    <article class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>“Doubts are explained patiently and the focus is always on understanding.”</p>
+                        <strong>Student</strong>
+                        <small>PUC Mathematics</small>
+                    </article>
+
+                    <article class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>“Regular practice helped me become more confident in solving problems.”</p>
+                        <strong>Student</strong>
+                        <small>Engineering Mathematics</small>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+        <section class="contact section" id="contact">
+            <div class="container contact-grid">
+
+                <div class="contact-heading">
+                    <span class="section-kicker">Let's Get Started</span>
+                    <h2>Ready to Make<br>Mathematics <span>Easier?</span></h2>
+                    <p>Contact me to discuss your requirements and schedule a tuition session.</p>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-method">
+                        <div class="contact-method-icon green">◉</div>
+                        <strong>WhatsApp</strong>
+                        <small>Click to Chat</small>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-method-icon blue">⌕</div>
+                        <strong>Phone</strong>
+                        <small>+91 XXXXX 43210</small>
+                        <em>Replace with your number</em>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-method-icon red">●</div>
+                        <strong>Location</strong>
+                        <small>Rajajinagar,<br>Bengaluru</small>
+                    </div>
+
+                    <div class="contact-actions">
+                        <a href="#contact" class="contact-btn primary">▣ &nbsp; Book a Demo Class <span>→</span></a>
+                        <a href="mailto:your@email.com" class="contact-btn secondary">✉ &nbsp; Email Me</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container footer-main">
+
+            <div class="footer-brand">
+                <a href="#home" class="brand">
+                    <span class="brand-mark">∞</span>
+                    <span class="brand-copy">
+                        <strong>Maths<span>Mentor</span></strong>
+                        <small>Understand&nbsp; • &nbsp;Practice&nbsp; • &nbsp;Excel</small>
+                    </span>
+                </a>
+            </div>
+
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#subjects">Subjects</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="socials">
+                <a href="#" aria-label="LinkedIn">in</a>
+                <a href="#" aria-label="GitHub">●</a>
+                <a href="#" aria-label="YouTube">▶</a>
+            </div>
+
+        </div>
+
+        <div class="container footer-bottom">
+            <span>© <span id="year"></span> MathsMentor. All rights reserved.</span>
+            <span>Designed with <b>♥</b> for Mathematics Learners</span>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
