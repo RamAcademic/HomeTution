@@ -2844,3 +2844,77 @@ html[data-theme="light"] .stat-slogan b {
         border-bottom-color: rgba(9, 32, 63, .12);
     }
 }
+
+/* =========================================================
+   FINAL MOBILE LIGHT-MODE MENU FIX
+   Fixes white menu text on the cream mobile dropdown.
+   Does not change desktop navbar or dark mode.
+   ========================================================= */
+
+@media (max-width: 820px) {
+    html[data-theme="light"] .nav-links {
+        background: #fbf8ef !important;
+        border-top-color: rgba(9, 32, 63, .10) !important;
+        box-shadow: 0 15px 30px rgba(9, 32, 63, .12) !important;
+    }
+
+    html[data-theme="light"] .nav-links a {
+        color: #09203f !important;
+        border-bottom-color: rgba(9, 32, 63, .10) !important;
+    }
+
+    html[data-theme="light"] .nav-links a:hover,
+    html[data-theme="light"] .nav-links a.active {
+        color: #09203f !important;
+    }
+
+    html[data-theme="light"] .nav-links a.active::after {
+        background: #ffc62d !important;
+    }
+}
+
+
+/* =========================================================
+   QUOTE BOX — OPENING + CLOSING QUOTE
+   Use .quote-open and .quote-close in the HTML.
+   ========================================================= */
+
+.quote-box {
+    position: relative;
+    padding: 24px 55px 22px;
+}
+
+.quote-box .quote-mark {
+    position: absolute;
+    font-family: Georgia, serif;
+    font-size: 44px;
+    line-height: 1;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+.quote-box .quote-open {
+    left: 20px;
+    top: 9px;
+}
+
+.quote-box .quote-close {
+    right: 20px;
+    bottom: 7px;
+    left: auto;
+    top: auto;
+}
+
+html[data-theme="light"] .quote-box .quote-mark {
+    color: #b8d2f0;
+}
+
+html[data-theme="dark"] .quote-box .quote-mark {
+    color: #6f9bc9;
+}
+
+/* Keep the quote text comfortably inside both quote marks */
+.quote-box p {
+    position: relative;
+    z-index: 1;
+}
