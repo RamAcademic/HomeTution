@@ -49,6 +49,46 @@
             justify-content: flex-start;
         }
         .theme-thumb { display: block; }
+        /* Contact email card — matches WhatsApp / Phone card style */
+        .contact-info-card .contact-actions {
+            display: contents;
+        }
+
+        .contact-info-card .email-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-method.email-link {
+            cursor: pointer;
+            transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+        }
+
+        .contact-method.email-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .contact-method-icon.purple {
+            background: rgba(112, 70, 210, 0.10);
+            color: #7046d2;
+        }
+
+        /* Keep the card readable when the site switches to dark mode */
+        html[data-theme="dark"] .contact-method.email-link {
+            color: var(--text, #f5f5f5);
+            background: var(--card-bg, #171717);
+            border-color: var(--border, rgba(255,255,255,.12));
+        }
+
+        html[data-theme="dark"] .contact-method-icon.purple {
+            background: rgba(160, 120, 255, 0.16);
+            color: #b79cff;
+        }
+
+        html[data-theme="dark"] .contact-method.email-link em,
+        html[data-theme="dark"] .contact-method.email-link small {
+            color: var(--muted, #a9a9a9);
+        }
     </style>
 
 </head>
@@ -517,11 +557,13 @@
                     </div>
 
                     <div class="contact-actions">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfkTq6pn0kYY8BhgRyXYxb7_QX2sUzYwfewO1bPdU9GwXc8Ww/viewform?usp=publish-editor" class="contact-btn primary"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i>&nbsp; Book a Demo Class <span>→</span></a>
-                       <a href="mailto:ramramesh135k@gmail.com" class="contact-btn secondary">
-    <i class="fa-regular fa-envelope" aria-hidden="true"></i>
-    &nbsp; Email Me <span>→</span>
-</a>
+                        <a href="mailto:ramramesh135k@gmail.com" class="contact-method email-link">
+                            <div class="contact-method-icon purple">
+                                <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <strong>Email</strong>
+                            <em>Click to Mail</em>
+                        </a>
                     </div>
                 </div>
 
@@ -553,7 +595,7 @@
             </div>
 
             <div class="socials">
-               <a href="https://www.instagram.com/yourusername/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+               <a href="https://www.instagram.com/iam._.ram_8/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
     <i class="fa-brands fa-instagram" aria-hidden="true"></i>
 
                           </div>
