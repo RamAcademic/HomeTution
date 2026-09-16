@@ -27,28 +27,42 @@
             color: #f5b91f;
         }
         .nav-actions-compact { gap: 0 !important; }
+        /* Theme toggle: one icon only */
         .theme-toggle {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 4px;
+            gap: 0;
+            position: relative;
         }
         .theme-icon {
-            display: inline-flex !important;
+            position: absolute !important;
+            inset: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            display: none !important;
             align-items: center;
             justify-content: center;
             visibility: visible !important;
             opacity: 1 !important;
             font-family: Arial, sans-serif;
-            font-size: 17px;
+            font-size: 21px;
             line-height: 1;
         }
-        .theme-track {
-            display: inline-flex;
-            align-items: center;
-            justify-content: flex-start;
+        .theme-moon {
+            display: inline-flex !important;
         }
-        .theme-thumb { display: block; }
+        [data-theme="dark"] .theme-sun {
+            display: inline-flex !important;
+            color: #ffc62d !important;
+        }
+        [data-theme="dark"] .theme-moon {
+            display: none !important;
+        }
+        .theme-track,
+        .theme-thumb {
+            display: none !important;
+        }
         /* Contact email card — matches WhatsApp / Phone card style */
         .contact-info-card .contact-actions {
             display: contents;
