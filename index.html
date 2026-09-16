@@ -74,20 +74,44 @@
         }
 
         /* Keep the card readable when the site switches to dark mode */
-        html[data-theme="dark"] .contact-method.email-link {
-            color: var(--text, #f5f5f5);
-            background: var(--card-bg, #171717);
-            border-color: var(--border, rgba(255,255,255,.12));
+        /* Force Email card to use the same theme surface as the other contact cards */
+        html[data-theme="dark"] .contact-info-card .contact-method.email-link {
+            background: #0f2947 !important;
+            color: #ffffff !important;
+            border: 1px solid #234a73 !important;
+            box-shadow: none !important;
         }
 
-        html[data-theme="dark"] .contact-method-icon.purple {
-            background: rgba(160, 120, 255, 0.16);
-            color: #b79cff;
+        html[data-theme="dark"] .contact-info-card .contact-method.email-link strong {
+            color: #ffffff !important;
         }
 
-        html[data-theme="dark"] .contact-method.email-link em,
-        html[data-theme="dark"] .contact-method.email-link small {
-            color: var(--muted, #a9a9a9);
+        html[data-theme="dark"] .contact-info-card .contact-method.email-link em,
+        html[data-theme="dark"] .contact-info-card .contact-method.email-link small {
+            color: #9fc3e8 !important;
+        }
+
+        html[data-theme="dark"] .contact-info-card .contact-method-icon.purple {
+            background: rgba(160, 120, 255, 0.16) !important;
+            color: #b79cff !important;
+        }
+
+        /* Light mode */
+        html[data-theme="light"] .contact-info-card .contact-method.email-link,
+        html:not([data-theme="dark"]) .contact-info-card .contact-method.email-link {
+            background: #fffdf7 !important;
+            color: #071a33 !important;
+            border: 1px solid #e5dfd1 !important;
+        }
+
+        html[data-theme="light"] .contact-info-card .contact-method.email-link strong,
+        html:not([data-theme="dark"]) .contact-info-card .contact-method.email-link strong {
+            color: #071a33 !important;
+        }
+
+        html[data-theme="light"] .contact-info-card .contact-method.email-link em,
+        html:not([data-theme="dark"]) .contact-info-card .contact-method.email-link em {
+            color: #8a9bb5 !important;
         }
     </style>
 
@@ -603,7 +627,7 @@
         </div>
 
         <div class="container footer-bottom">
-            <span>© <span id="year"></span> MathsMentor. All rights reserved.</span>
+            <span>© <span id="year"></span> Mr.Ramesh All rights reserved.</span>
             <span>Designed with <b>♥</b> for Mathematics Learners</span>
         </div>
     </footer>
