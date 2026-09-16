@@ -165,20 +165,22 @@ button {
 }
 
 .theme-toggle {
-    width: 76px;
-    height: 32px;
-    border: 1px solid rgba(255,255,255,.28);
-    border-radius: 999px;
-    background: #f1f4f8;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #dfe7f0;
+    border-radius: 50%;
+    background: #ffffff;
     color: #09203f;
     display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 5px;
+    justify-content: center;
     cursor: pointer;
-    padding: 3px 6px;
-    flex: 0 0 auto;
-    transition: background .25s ease, border-color .25s ease, transform .2s ease;
+    padding: 0;
+    flex: 0 0 50px;
+    position: relative;
+    overflow: hidden;
+    transition: background .25s ease, border-color .25s ease, transform .2s ease, box-shadow .25s ease;
+    box-shadow: 0 4px 14px rgba(7,35,73,.08);
 }
 
 .theme-toggle:hover {
@@ -186,57 +188,58 @@ button {
 }
 
 .theme-icon {
-    width: 21px;
-    height: 21px;
-    display: grid;
-    place-items: center;
-    flex: 0 0 21px;
-    font-size: 12px;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: none !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
     line-height: 1;
     z-index: 2;
 }
 
 .theme-sun {
-    color: #09203f;
+    color: #ffc62d;
 }
 
 .theme-moon {
     color: #09203f;
 }
 
-.theme-track {
-    position: relative;
-    width: 25px;
-    height: 25px;
-    display: block;
-    flex: 0 0 25px;
-}
-
+.theme-track,
 .theme-thumb {
-    position: absolute;
-    top: 1px;
-    left: 0;
-    width: 23px;
-    height: 23px;
-    border-radius: 50%;
+    display: none !important;
+}
+
+/* Light mode: only moon */
+html[data-theme="light"] .theme-toggle,
+html:not([data-theme="dark"]) .theme-toggle {
     background: #ffffff;
-    box-shadow: 0 2px 7px rgba(3,26,59,.18);
-    transition: transform .25s ease, background .25s ease;
+    border-color: #dfe7f0;
+    color: #09203f;
 }
 
-[data-theme="dark"] .theme-toggle {
+html[data-theme="light"] .theme-moon,
+html:not([data-theme="dark"]) .theme-moon {
+    display: inline-flex !important;
+}
+
+/* Dark mode: only sun */
+html[data-theme="dark"] .theme-toggle {
     background: #102b4d;
-    border-color: rgba(255,255,255,.22);
-}
-
-[data-theme="dark"] .theme-sun,
-[data-theme="dark"] .theme-moon {
+    border-color: rgba(255,255,255,.24);
     color: #ffffff;
+    box-shadow: 0 4px 14px rgba(0,0,0,.18);
 }
 
-[data-theme="dark"] .theme-thumb {
-    background: var(--yellow);
-    transform: translateX(2px);
+html[data-theme="dark"] .theme-sun {
+    display: inline-flex !important;
+}
+
+html[data-theme="dark"] .theme-moon {
+    display: none !important;
 }
 
 .nav-cta {
