@@ -1,7 +1,14 @@
+
 /* =========================================================
    MATHSMENTOR JAVASCRIPT
    Desktop + Mobile
    Dark / Light Mode
+   Visitor Counter
+========================================================= */
+
+
+/* =========================================================
+   DOM ELEMENTS
 ========================================================= */
 
 const menuToggle = document.getElementById("menuToggle");
@@ -96,7 +103,9 @@ if ("IntersectionObserver" in window) {
 
 
                     if (activeItem) {
+
                         activeItem.classList.add("active");
+
                     }
 
                 }
@@ -112,7 +121,9 @@ if ("IntersectionObserver" in window) {
 
 
     sections.forEach(section => {
+
         activeObserver.observe(section);
+
     });
 
 }
@@ -120,28 +131,26 @@ if ("IntersectionObserver" in window) {
 
 /* =========================================================
    DARK / LIGHT MODE
-   SINGLE THEME SYSTEM
 ========================================================= */
 
 const THEME_KEY = "mathsMentorTheme";
+
 
 function applyTheme(theme) {
 
     const isLight = theme === "light";
 
-    // Main theme attribute used by CSS
+
     document.documentElement.setAttribute(
         "data-theme",
         isLight ? "light" : "dark"
     );
 
 
-    // Keep body class clean for compatibility
     document.body.classList.toggle("light", isLight);
     document.body.classList.toggle("dark", !isLight);
 
 
-    // Update toggle accessibility
     if (themeToggle) {
 
         themeToggle.setAttribute(
@@ -149,12 +158,14 @@ function applyTheme(theme) {
             String(isLight)
         );
 
+
         themeToggle.setAttribute(
             "aria-label",
             isLight
                 ? "Switch to dark mode"
                 : "Switch to light mode"
         );
+
 
         themeToggle.setAttribute(
             "title",
@@ -168,13 +179,12 @@ function applyTheme(theme) {
 }
 
 
-/*
-   Read saved theme.
-
-   Default = DARK MODE
-*/
+/* =========================================================
+   INITIAL THEME
+========================================================= */
 
 const savedTheme = localStorage.getItem(THEME_KEY);
+
 
 const initialTheme =
     savedTheme === "light"
@@ -204,14 +214,12 @@ if (themeToggle) {
                 : "dark";
 
 
-        // Save selected theme
         localStorage.setItem(
             THEME_KEY,
             nextTheme
         );
 
 
-        // Apply selected theme
         applyTheme(nextTheme);
 
     });
@@ -275,8 +283,6 @@ if ("IntersectionObserver" in window) {
     });
 
 } else {
-
-    // Fallback for older browsers
 
     revealElements.forEach(element => {
 
@@ -387,6 +393,79 @@ document.addEventListener("keydown", (event) => {
 
 
 /* =========================================================
+   VISITOR COUNTER
+   MATHSMENTOR WEBSITE
+========================================================= */
+
+/*
+   IMPORTANT:
+
+   This is a placeholder for your visitor counter.
+
+   The old CounterAPI v1 endpoint is retired.
+
+   For a working shared visitor counter:
+   - Use a supported counter service.
+   - Or connect Firebase / Supabase.
+*/
+
+
+const visitorCountElement =
+    document.getElementById("visitorCount") ||
+    document.getElementById("visitorsCount") ||
+    document.getElementById("visitor-count");
+
+
+const liveCountElement =
+    document.getElementById("liveCount") ||
+    document.getElementById("liveVisitors") ||
+    document.getElementById("live-count");
+
+
+/* =========================================================
+   LOCAL VISITOR DISPLAY
+========================================================= */
+
+function initializeVisitorDisplay() {
+
+    /*
+       This is NOT a shared visitor counter.
+
+       It only displays the current browser visit
+       and does not count visitors across devices.
+    */
+
+    if (liveCountElement) {
+
+        liveCountElement.textContent = "1";
+
+    }
+
+}
+
+
+/* =========================================================
+   VISITOR COUNTER STATUS
+========================================================= */
+
+function showCounterStatus(message) {
+
+    console.log(
+        "Visitor Counter:",
+        message
+    );
+
+}
+
+
+/* =========================================================
+   INITIALIZE COUNTER
+========================================================= */
+
+initializeVisitorDisplay();
+
+
+/* =========================================================
    CONSOLE
 ========================================================= */
 
@@ -394,6 +473,12 @@ console.log(
     "MathsMentor website loaded successfully."
 );
 
+
 console.log(
     "Mathematics Home Tuition | Rajajinagar | Bengaluru"
+);
+
+
+showCounterStatus(
+    "Live display initialized."
 );
